@@ -1,0 +1,86 @@
+      /* COLLAPSABLE CONTENT*/
+      /* All elements with "clickHereto" string in their classnames */
+      [class*="clickHereto"], [class*="clickHereto"] span {
+        cursor: pointer;
+        padding-left:0em; 
+        margin-left:0em;
+      }
+      /* Feed text into more/less buttons */
+      .clickHeretoShowHide span::before {
+        content: "▽ mer/mindre detaljer △";
+        font-style: italic;
+        color:gray;
+      }
+      .clickHeretoHide span::before {
+        content: "△ gömma detaljer";
+        font-style: italic;
+        color:gray;
+      }
+    
+      /* Set Collapsing div */
+      .collapsingDiv {
+        font-style: italic;
+        color:gray;
+        padding:0em; 
+        margin:0em;
+      }
+      /* Set div within Collapsing div */
+      .collapsingDiv div{
+        padding:0em; 
+        margin:0em 2em 0em 2em;
+      }
+
+      /* "DETAILS/SUMMARY" */
+      details > summary {
+        margin-left: 0em;
+        border: none;
+        cursor: pointer;
+      }
+    
+      details > div {
+        margin-left: 0em;
+      }
+
+
+
+      /* GRIDS */
+      /* All "gridCointainers" */
+      [class*="gridContainer"] div {
+        margin:auto;
+      }
+    
+      .gridContainer1 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-rows: auto;
+        grid-gap: 0.2em;
+        justify-content: space-between;
+      }
+    
+      .gridContainer2 {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto auto;
+        grid-gap: 1em;
+        align-items: center;
+        text-align: justify;
+      }
+    
+      /* Change AIPCR grid layout to 1 col / 4 rows in smaller windows */
+      @media screen and (max-width: 900px){
+        .gridContainer2{
+           grid-template-columns: 1fr;
+           grid-template-rows: auto;
+        }
+     }
+
+      .gridContainer3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 1em;
+        align-items: center;
+        text-align: justify;
+      }
+      
+
