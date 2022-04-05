@@ -423,7 +423,7 @@
           <!--WebScripts-->
 	        <p onclick="ShowHide(this.nextElementSibling)" 
             class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
-            Cloud-based datavisualisering och Webapplikationer
+            Webbapplikationer och Cloud-based datavisualisering
             <br>
             <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
           </p>
@@ -456,47 +456,64 @@
             </p>
 	        </div>
 
-          <!--Coding-->
-	        <p onclick="ShowHide(this.nextElementSibling)" 
+          <!--Coding2-->
+	      <p onclick="ShowHide(this.nextElementSibling)" 
             class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
-            Programutveckling med Javascript, HTML/CSS, Python, Linux, .Net C#
-            <br>
+            Standalone applikationer i Javascript, HTML/CSS, Python, Linux, .Net C#
+          <br>
             <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
           </p>
 
-	        <div id="ListCodeExample" class="w3-container  w3-hide collapsingDiv">
-            <div>
-              <ul>
-                <li><p>Google Earth kartvisualisering av vägmätningsresultat (Linux Bash Script, KMZ)</p>
-                  <img 
+          <div id="ListCode2Example" class="w3-container  w3-hide collapsingDiv">
+          <div>
+            <div class="tab">
+               <button class="tablinks" onclick="openTab(event, 'Tab1')" id="defaultOpen">Kartvisualisering 1</button>
+               <button class="tablinks" onclick="openTab(event, 'Tab2')">Kartvisualisering 2</button>
+               <button class="tablinks" onclick="openTab(event, 'Tab3')">PDF-rapport</button>
+            </div>
+          
+            <div id="Tab1" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h4>Kartvisualisering av vägmätningsresultat.</h4>
+            
+                <p>Linux Bash Script, Google Earth-KMZ</p>
+                <img 
                     src="https://drive.google.com/uc?export=view&id=1hn0gHjB-nerdNmWx97wPp33fuosJGw3j" 
                     style="width:100%" 
                     alt="GEarthVisualization1"
-                  >
-                </li>
-                <br>
-                <li><p>PDF-rapport om vintervägmätningsresultat (Python)</p>
-                  <img 
-                    src="https://drive.google.com/uc?export=view&id=1UhFxj5p3hj6VB5seoSlNfqWDOdpTfrsu" 
-                    style="width:70%; display:block; margin:auto" 
-                    alt="ViaFrictionVisualizationPDF"
-                  >
-                </li>
-                <br>
-                <li><p>OpenStreetMap kartvisualisering av vintervägmätningsresultat (Python, Folium Map)</p>
-                  <img 
+                >
+            </div>
+          
+            <div id="Tab2" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+
+                <h4>Kartvisualisering av vintervägmätningsresultat.</h4>
+                <p>OpenStreetMap, Python, Folium Map</p> 
+                <img 
                     src="https://drive.google.com/uc?export=view&id=1g7jN4XZeEU4OTkeBQOnVx8HKzU-HIIY9" 
                     style="width:100%; display:block; margin:auto" 
                     alt="ViaFrictionVisualizationFOLIUM"
-                  >
-                </li>
-              </ul>  
+                >
             </div>
-            <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-            </p>
-	        </div>
-                  
+          
+            <div id="Tab3" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+
+                <h4>Rapport om vinter friktionmätning.</h4>
+                <p>PDF, Python</p>
+                <img 
+                    src="https://drive.google.com/uc?export=view&id=1UhFxj5p3hj6VB5seoSlNfqWDOdpTfrsu" 
+                    style="width:70%; display:block; margin:auto" 
+                    alt="ViaFrictionVisualizationPDF"
+                >
+            </div>
+          </div>
+
+          <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+            <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+          </p>
+          </div>
+
           <hr>
         </div>
 
