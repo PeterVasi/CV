@@ -1,2 +1,2 @@
 # CV_se
-MinCV
+Mitt cv på svenska.
