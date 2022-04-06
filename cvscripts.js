@@ -1,20 +1,22 @@
 // Tab Control
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+function openTabContent(evt, tabId) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("tabClass");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
     }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-border-teal", "");
     }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    document.getElementById(tabId).style.display = "block";
+    evt.currentTarget.firstElementChild.className += " w3-border-teal";
   }
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+// Get the element with id="openAtStart" and click on it
+document.getElementById("openAtStart").click();
+
+
 
 //Toggle Show and Hide
 function ShowHide(obj) {
