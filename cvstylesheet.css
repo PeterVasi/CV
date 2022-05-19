@@ -1,3 +1,11 @@
+      html, body, h1, h2, h3, h4, h5, h6 {font-family: "Roboto", sans-serif;}
+      
+      .li-centered {
+        display: table; 
+        margin: 0 auto;
+        text-align: left;
+      }
+      
       /* COLLAPSABLE CONTENT*/
       /* All elements with "clickHereto" string in their classnames */
       [class*="clickHereto"], [class*="clickHereto"] span {
