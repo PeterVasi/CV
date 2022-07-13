@@ -125,7 +125,7 @@
 
             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block w3-left-align clickHeretoShowHide">
-              Rambøll Sverige
+              Ramboll Sverige
               <br>
               T7 Engineering Ungern
               <br>
@@ -172,7 +172,7 @@
 
           <!--Ministry-->
           <div class="w3-container">
-            <h5 class="w3-text-teal"><b>Specialist på vägsäkerhet</b></h5>
+            <h5 class="w3-text-teal"><b>Specialist på trafiksäkerhet</b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2002 - 2005</h6>
             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
@@ -373,7 +373,7 @@
             </div>
 
             <!--Counsil of Europe-->
-            <p>Europarådet - Arbetsgrupp för harmonisering av EU körkortslagstiftning</p>
+            <p>Europeiska unionens råd - Arbetsgrupp för harmonisering av EU körkortslagstiftning</p>
             <hr>
           </div>
 
@@ -420,40 +420,44 @@
             <!--Coding-->
             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
-              Programutvekling i Javascript, HTML/CSS, Python, Linux, .Net C#
+              Programutvekling
               <br>
               <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
             </p>
 
             <div id="ListCode2Example" class="w3-container  w3-hide collapsingDiv">
               
-              <!-- Tab Buttons (4) -->
+              <!-- Tab Buttons (5) -->
               <div class="w3-row" style="margin: 0;">
                 <a href="javascript:void(0)" onclick="openTabContent(event, 'tab1');" id="openAtStart">
-                  <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
-                    style="margin: 0;">Lägesrapport</div>
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                    style="width:20%; margin: 0;">JavaScript</div>
                 </a>
                 <a href="javascript:void(0)" onclick="openTabContent(event, 'tab2');">
-                  <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
-                    style="margin: 0;">Kart 1</div>
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                    style="width:20%; margin: 0;">Linux</div>
                 </a>
                 <a href="javascript:void(0)" onclick="openTabContent(event, 'tab3');">
-                  <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
-                    style="margin: 0;">Kart 2</div>
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                    style="width:20%; margin: 0;">Python</div>
                 </a>
                 <a href="javascript:void(0)" onclick="openTabContent(event, 'tab4');">
-                  <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
-                    style="margin: 0;">PDF Rapport</div>
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                    style="width:20%; margin: 0;">Python</div>
+                </a>
+                <a href="javascript:void(0)" onclick="openTabContent(event, 'tab5');">
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                    style="width:20%; margin: 0;">C#</div>
                 </a>
               </div>
 
               <!-- Tab1 Content -->
               <div id="tab1" class="w3-container tabClass" style="margin: 0;">
-                <span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span>
+                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
 
-                <h4 class="w3-center">Lägesrapport om mätning.</h4>
-                <ul>
-                  <li>Web Application och Cloud-based Datavisualization</li>
+                <h4 class="w3-center">Lägesrapport om Funktionskontroll av Vägmarkering</h4>
+                <ul class="li-centered">
+                  <li>Web Application och Cloud-based Data Visualization</li>
                   <li>HTML/CSS</li>
                   <li>JavaScript</li>
                   <li>Google Apps Script</li>
@@ -471,9 +475,9 @@
 
               <!-- Tab2 Content -->
               <div id="tab2" class="w3-container tabClass" style="margin: 0;">
-                <span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span>
-                <h4 class="w3-center">Kartvisualisering av vägmätningsresultat.</h4>
-                <ul>
+                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
+                <h4 class="w3-center">Kartvisualisering av Vägytemätningsresultat</h4>
+                <ul class="li-centered">
                   <li>Linux Bash</li>
                   <li>Google Earth, KMZ</li>
                 </ul>
@@ -483,9 +487,9 @@
 
               <!-- Tab3 Content -->
               <div id="tab3" class="w3-container tabClass" style="margin: 0;">
-                <span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span>
-                <h4 class="w3-center">Kartvisualisering av vintervägmätningsresultat.</h4>
-                <ul>
+                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
+                <h4 class="w3-center">Kartvisualisering av Vintervägmätningsresultat</h4>
+                <ul class="li-centered">
                   <li>Python</li>
                   <li>Folium Map, OpenStreetMap</li>
                 </ul>
@@ -495,14 +499,26 @@
 
               <!-- Tab4 Content -->
               <div id="tab4" class="w3-container tabClass" style="margin: 0;">
-                <span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span>
-                <h4 class="w3-center">Rapport om vinter friktionmätning.</h4>
+                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
+                <h4 class="w3-center">Rapport om Vinter Friktionmätning</h4>
                 <ul class="li-centered">
                   <li>Python</li>
                   <li>PDF</li>
                 </ul>
-                <img src="https://drive.google.com/uc?export=view&id=1UhFxj5p3hj6VB5seoSlNfqWDOdpTfrsu"
+                <img src="https://drive.google.com/uc?export=view&id=1qAJgHBWKYeGhkLoZ2iLjiWwROVpIa0Sz"
                   style="width:70%; display:block; margin:auto" alt="ViaFrictionVisualization-PDF">
+              </div>
+
+              <!-- Tab5 Content -->
+              <div id="tab5" class="w3-container tabClass" style="margin: 0;">
+                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
+                <h4 class="w3-center">Reporting Tool för Vinter Friktionmätning</h4>
+                <ul class="li-centered">
+                  <li>C#, .Net Windows Presentation Foundation</li>
+                  <li>Python</li>
+                </ul>
+                <img src="https://drive.google.com/uc?export=view&id=13d8strfcNlMpNnzDwfG5Jj3nRE6Eu04J"
+                  style="width:100%; display:block; margin:auto" alt="ViaFrictionReportingTool">
               </div>
 
               <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
@@ -530,7 +546,7 @@
 
           <h2 class="w3-text-grey w3-padding-16">
             <i class="fa fa-graduation-cap fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
-            Utbildningsbakgrund
+            Utbildning
           </h2>
 
           <!--University-->
