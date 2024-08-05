@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html lang="sv-se">
+<!--html lang="sv-se"-->
 
-<head>
-  <title>Peter Vasi</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="cvstylesheet.css">
-  <!--style>
-    html,
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Roboto", sans-serif;
-    }
-  </style-->
-</head>
+  <head>
+    <title>Peter Vasi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="cvstylesheet.css">
+  </head>
 
-<body class="w3-light-grey">
+  <body class="w3-light-grey" lang="se">
+
 
   <!-- Page Container -->
   <div class="w3-content w3-margin-top" style="max-width:1400px;">
@@ -34,61 +23,120 @@
       <!-- LEFT PANE -->
       <div class="w3-third">
 
-        <!-- Photo and Contact  -->
+        <!-- Photo, CountryFlags and Contact Info -->
         <div class=" w3-text-grey w3-card-4 w3-white w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="https://drive.google.com/uc?export=view&id=134iglTNQfUfUcanZFvecHkGYhyFTSKUL" style="width:100%"
-              alt="PVasi Foto">
-            <div class="w3-display-bottomleft w3-container w3-text-white">
+            <img id="PVphoto" src="https://drive.google.com/thumbnail?id=134iglTNQfUfUcanZFvecHkGYhyFTSKUL&sz=w1000" style="width:100%;" alt="PVasi">
+            <div class="w3-display-bottomleft w3-container w3-text-white" style="display: inline-flex;">
               <h2>Peter Vasi</h2>
             </div>
           </div>
+
+          <!-- Country Flags as Radio buttons -->
+          <div class="w3-container w3-section">
+            <label class="flagRadioBtn">
+              <input type="radio" id="countryFlagUK" name="countryFlags" value="en" onclick="changeLang(this);"/>
+              <img src="UKflag-square-250.png" style="width: 7%;" title="click here for English" alt="en">
+            </label>
+            <label class="flagRadioBtn">
+              <input type="radio" id="countryFlagSE" name="countryFlags" value="se" onclick="changeLang(this);"/>
+              <img src="SEflag-square-250.png" style="width: 7%;" title="klicka här för svenska" alt="se">
+            </label>
+            <label class="flagRadioBtn">
+              <input type="radio" id="countryFlagNL" name="countryFlags" value="nl" onclick="changeLang(this);" disabled/>
+              <img src="NLflag-square-250.png" style="width: 7%;" title="klik hier voor nederlands" alt="nl">
+            </label>
+          </div>
+
+          <!-- Contact Info -->
           <div class="w3-container">
-            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>civilingenjör</p>
-            <p id="lakcim"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>adress</p>
-            <p id="ecim"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>e-post</p>
-            <!--p id="telszam"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>mobiltelefon</p-->
+            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
+              <span lang="en">civil engineer</span>
+              <span lang="se">civilingenjör</span>
+            </p>
+            <p id="lakcim"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
+              <span lang="en">address</span>
+              <span lang="se">adress</span>
+            </p>
+            <p id="ecim"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
+              <span lang="en" style="cursor: text;">e-mail</span>
+              <span lang="se" style="cursor: text;">e-post</span>
+            </p>
+            <p id="telszam"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
+              <span lang="en">-</span>
+              <span lang="se">-</span>
+            </p>
           </div>
         </div>
 
-        <!-- Base Skills, Language Skills  -->
+        <!-- Competences, Base Skills, Language Skills  -->
         <div class=" w3-text-grey w3-card-4 w3-white w3-margin-bottom">
           <div class="w3-container">
-            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Kompetens</b></p>
-            <p>Datamanagement</p>
+            <p class="w3-large"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><b>
+              <span lang="en">Competencies</span>
+              <span lang="se">Kompetens</span>
+            </b></p>
+            <p>
+              <span lang="en">Datamanagement</span>
+              <span lang="se">Datamanagement</span>
+            </p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
               <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:85%">85%</div>
             </div>
-            <p>Fältarbete</p>
+            <p>
+              <span lang="en">Fieldwork</span>
+              <span lang="se">Fältarbete</span>
+            </p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
               <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
             </div>
-            <p>Project Management</p>
+            <p>
+              <span lang="en">Project Management</span>
+              <span lang="se">Project Management</span>
+            </p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
               <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
             </div>
-            <p>Programutveckling</p>
+            <p>
+              <span lang="en">Software Development</span>
+              <span lang="se">Programutveckling</span>
+            </p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
               <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:60%">60%</div>
             </div>
 
             <hr>
 
-            <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Språk</b>
+            <p class="w3-large w3-text-theme"><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i><b>
+              <span lang="en">Language Skills</span>
+              <span lang="se">Språk</span>
+            </b>
             </p>
-            <p>Ungerska</p>
+            <p>
+              <span lang="en">Hungarian</span>
+              <span lang="se">Ungerska</span>
+            </p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
             </div>
-            <p>Engelska</p>
+            <p>
+              <span lang="en">English</span> <!--span lang="en"><i>(preferred language for now)</i></span-->
+              <span lang="se">Engelska</span> <!--span lang="se"> <i>(det prioriterade språket för tillfället)</i></span-->
+            </p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:90%"></div>
             </div>
-            <p>Nederländska</p>
+            <p>
+              <span lang="en">Dutch</span>
+              <span lang="se">Holländska</span>
+            </p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:50%"></div>
             </div>
-            <p>Svenska</p>
+            <p>
+              <span lang="en">Swedish</span>
+              <span lang="se">Svenska</span>
+            </p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:30%"></div>
             </div>
@@ -97,102 +145,163 @@
         </div>
         <br>
       </div>
-      <!-- End Left Pane -->
+      <!-- END OF LEFT PANE -->
+
+
+
 
       <!-- RIGHT PANE -->
       <div class="w3-twothird">
 
         <!-- Personal Characteristics # -->
         <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-          <h2 class="w3-text-teal w3-padding-small w3-large"><i>#analytiskt tankesätt</i></h2>
-          <h2 class="w3-text-teal w3-padding-small w3-large"><i>#systems approach</i></h2>
-          <h2 class="w3-text-teal w3-padding-small w3-large"><i>#flexibilitet</i></h2>
-          <h2 class="w3-text-teal w3-padding-small w3-large"><i>#lojalitet</i></h2>
+          <p class="w3-text-teal w3-padding-small"><i>
+            <span lang="en">#analytical thinking</span>
+            <span lang="se">#analytiskt tankesätt</span>
+            <br>
+            <span lang="en">#systems approach</span>
+            <span lang="se">#systems approach</span>
+            <br>
+            <span lang="en">#flexibility</span>
+            <span lang="se">#flexibilitet</span>            
+            <br>
+            <span lang="en">#loyalty</span>
+            <span lang="se">#lojalitet</span>            
+          </i></p>
         </div>
 
         <!-- Work Experience -->
         <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
           <h2 class="w3-text-grey w3-padding-16"><i
-              class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Arbetserfarenhet</h2>
+              class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+              <span lang="en">Work Experience</span>
+              <span lang="se">Arbetserfarenhet</span>
+          </h2>
 
           <!--Road Surveys-->
           <div class="w3-container">
-            <h5 class="w3-text-teal"><b>Specialist på vägmätning</b></h5>
+            <h5 class="w3-text-teal"><b>
+              <span lang="en">Road Surveys</span>
+              <span lang="se">Vägmätning</span>
+            </b></h5>
             <h6 class="w3-text-teal">
               <i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2020
               <!-- <span class="w3-tag w3-teal w3-opacity w3-round">senaste jobbet</span> -->
             </h6>
 
-            <p onclick="ShowHide(this.nextElementSibling)"
-              class="w3-hover-light-grey w3-block w3-left-align clickHeretoShowHide">
-              Ramboll Sverige
-              <br>
-              T7 Engineering Ungern
-              <br>
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            <p class="entry_as_accordion">
+              Ramboll Sverige, T7 Engineering
             </p>
+<!--             <p onclick="ShowHide(this.nextElementSibling)"
+              class="w3-hover-light-grey w3-block w3-left-align clickHeretoShowHide">
+              <span lang="en">Ramboll Sverige</span>
+              <span lang="se">Ramboll Sverige</span>
+              <br>
+              <span lang="en">T7 Engineering</span>
+              <span lang="se">T7 Engineering</span>
+              <br>
+              <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            </p> -->
 
-            <div id="ListSURVEYS" class="w3-container  w3-hide collapsingDiv">
+            <div id="ListSURVEYS" class="panel w3-text-grey">
               <div>
-                <p>Planera och utföra vägundersökning, bearbeta och visualisera data</p>
+                <p>
+                  <span lang="en">Plan and conduct Road Condition Surveys<br>Process and visualize the results</span>
+                  <span lang="se">Planera och utföra vägundersökning<br>Analysera och visualisera data</span>
+                </p>
                 <ul>
-                  <li>Road Surface Tester - Laser RST</li>
-                  <li>Road Marking Retroreflectometer - RMT, DELTA LTL-M</li>
-                  <li>Ground Penetrating Radar - GPR, 3D-Radar</li>
-                  <li>Road Friction Tester - ViaFriction</li>
-                  <li>Falling Weight Deflectometer - KUAB, Curviameter, Dynatest</li>
+                  <li>
+                    <span lang="en">Road Surface Tester - Laser RST</span>
+                    <span lang="se">Road Surface Tester - Laser RST</span>
+                  </li>
+                  <li>
+                    <span lang="en">Road Marking Retroreflectometer - RMT, DELTA LTL-M</span>
+                    <span lang="se">Road Marking Retroreflectometer - RMT, DELTA LTL-M</span>
+                  </li>
+                  <li>
+                    <span lang="en">Ground Penetrating Radar - GPR, 3D-Radar</span>
+                    <span lang="se">Ground Penetrating Radar - GPR, 3D-Radar</span>
+                  </li>
+                  <li>
+                    <span lang="en">Road Friction Tester - ViaFriction</span>
+                    <span lang="se">Road Friction Tester - ViaFriction</span>
+                  </li>
+                  <li>
+                    <span lang="en">Falling Weight Deflectometer - KUAB, Curviameter, Dynatest</span>
+                    <span lang="se">Falling Weight Deflectometer - KUAB, Curviameter, Dynatest</span>
+                  </li>
                 </ul>
               </div>
 
               <div class="gridContainer1">
                 <div>
-                  <img src="https://drive.google.com/uc?export=view&id=1yKsXrqqFFBOrVvZRFyEwE2g9bq5cpuEk"
+                  <img src="https://drive.google.com/thumbnail?id=1yKsXrqqFFBOrVvZRFyEwE2g9bq5cpuEk&sz=w1000"
                     style="width:100%;" alt="RST">
                 </div>
                 <div>
-                  <img src="https://drive.google.com/uc?export=view&id=1Zimm-7uMZBTWBvRZ5RyxsnItE-tOXyp1"
+                  <img src="https://drive.google.com/thumbnail?id=1Zimm-7uMZBTWBvRZ5RyxsnItE-tOXyp1&sz=w1000"
                     style="width:100%;" alt="RMT">
                 </div>
                 <div>
-                  <img src="https://drive.google.com/uc?export=view&id=1zmD4GTQld5O-W1wkAns3XLH5ZlfSGvTF"
+                  <img src="https://drive.google.com/thumbnail?id=1zmD4GTQld5O-W1wkAns3XLH5ZlfSGvTF&sz=w1000"
                     style="width:100%;" alt="GPR 3D-Radar">
                 </div>
                 <div>
-                  <img src="https://drive.google.com/uc?export=view&id=1jpKItm8nRapkFxnvZKcC9mpJdiVP2mhl"
+                  <img src="https://drive.google.com/thumbnail?id=1jpKItm8nRapkFxnvZKcC9mpJdiVP2mhl&sz=w1000"
                     style="width:100%;" alt="ViaFriction">
                 </div>
               </div>
 
-              <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-                <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-              </p>
+<!--               <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+                <span class="showless-tag w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              </p> -->
             </div>
             <hr>
           </div>
 
           <!--Ministry-->
           <div class="w3-container">
-            <h5 class="w3-text-teal"><b>Specialist på trafiksäkerhet</b></h5>
+            <h5 class="w3-text-teal"><b>
+              <span lang="en">Road Safety Specialist</span>
+              <span lang="se">Specialist på trafiksäkerhet</span>
+            </b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2002 - 2005</h6>
-            <p onclick="ShowHide(this.nextElementSibling)"
-              class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
-              Transportministeriet Ungern
-              <br>
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            <p class="entry_as_accordion">
+              <span lang="en">Ministry of Transport, Hungary</span>
+              <span lang="se">Transportministeriet Ungern</span>
             </p>
-            <div id="ListMINISTRY" class="w3-container  w3-hide collapsingDiv">
+<!--             <p onclick="ShowHide(this.nextElementSibling)"
+              class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
+              <span lang="en">Ministry of Transport, Hungary</span>
+              <span lang="se">Transportministeriet Ungern</span>
+              
+              <br>
+              <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            </p> -->
+            <div id="ListMINISTRY" class="panel w3-text-grey">
               <div>
-                <p>Chef för trafiksäkerhetsavdelningen</p>
+                <p>
+                  <span lang="en">Head of Transport Safety Dept.</span>
+                  <span lang="se">Chef för trafiksäkerhetsavdelningen</span>
+                </p>
                 <ul>
-                  <li>Analys</li>
-                  <li>Transportpolitik</li>
-                  <li>Trafiksäkerhetsstrategi</li>
-                  <li>EU lagharmoniseringsfrågor</li>
+                  <li>
+                    <span lang="en">Analysis</span>
+                    <span lang="se">Analys</span>
+                  </li>
+                  <li>
+                    <span lang="en">Transport Policy, Road Safety Strategy</span>
+                    <span lang="se">Transportpolitik, trafiksäkerhetsstrategi</span>
+                  </li>
+                  <li>
+                    <span lang="en">EU Law Harmonization</span>
+                    <span lang="se">EU lagharmonisering frågor</span>
+                  </li>
                 </ul>
               </div>
-              <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-                <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-              </p>
+<!--               <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+                <span class="showless-tag w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              </p> -->
             </div>
             <hr>
           </div>
@@ -200,90 +309,181 @@
           <!--AKMI-->
           <div class="w3-container">
             <h5 class="w3-text-teal">
-              <b>Vägundersökning ingenjör
+              <b>
+                <span lang="en">Road Surveys</span>
+                <span lang="se">Vägundersökning ingenjör</span>
                 <br>
-                Trafikingenjör
+                <span lang="en">Traffic Engineering</span>
+                <span lang="se">Trafikingenjör</span>
                 <br>
-                Databankingenjör
+                <span lang="en">Databank Engineer</span>
+                <span lang="se">Databankingenjör</span>
               </b>
             </h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1990 - 2001</h6>
-
-            <p onclick="ShowHide(this.nextElementSibling)"
-              class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
-              Riksvägar (Ungerns Trafikverket)
-              <br>
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            
+            <p class="entry_as_accordion">
+              <span lang="en">National Roads</span>
+              <span lang="se">Riksvägar (Ungerns Trafikverket)</span>
             </p>
-            <div id="ListBackgroundOrgs" class="w3-container  w3-hide collapsingDiv">
-              <div>
-                <p>Ingenjörstjänster till Riksvägar
-                  <br>Riksvägdatabanken
-                  <br>Motorvägsdirektoratet
-                </p>
+<!--             <p onclick="ShowHide(this.nextElementSibling)"
+              class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
+              <span lang="en">National Roads</span>
+              <span lang="se">Riksvägar (Ungerns Trafikverket)</span>
+              <br>
+              <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            </p> -->
+            <div id="ListBackgroundOrgs" class="panel w3-text-grey">
+              <div id="akmiTaskList">
+<!--                 <p>
+                  <span lang="en">Engineering Services for National Roads</span>
+                  <span lang="se">Ingenjörstjänster till Riksvägar</span>
+                  <br>
+                  <span lang="en">National Road Databank</span>
+                  <span lang="se">Riksvägdatabanken (VDB)</span>
+                  <br>
+                  <span lang="en">Motorway Directorate</span>
+                  <span lang="se">Motorvägsdirektoratet</span>
+                </p> -->     
+                <!-- R+D -->
                 <details>
-                  <summary>R+D</summary>
+                  <summary>
+                    <span lang="en">R+D</span>
+                    <span lang="se">R+D</span>
+                  </summary>
                   <div>
-                    <p>Utföra olika projekt som kund inom området för:</p>
+                    <p style="padding-left: 1em;">
+                      <span lang="en">Projects in the fields of:</span>
+                      <span lang="se">Utföra olika projekt inom områden:</span>
+                    </p>
                     <ul>
-                      <li>Vägens tillstånd</li>
-                      <li>Trafikanalys</li>
-                      <li>Trafiksäkerhet</li>
+                      <li>
+                        <span lang="en">Road Condition Surveys</span>
+                        <span lang="se">Vägförhållanden</span>
+                      </li>
+                      <li>
+                        <span lang="en">Traffic Counting and Analysis</span>
+                        <span lang="se">Trafikmätning och analys</span>
+                      </li>
+                      <li>
+                        <span lang="en">Road Safety</span>
+                        <span lang="se">Trafiksäkerhet</span>
+                      </li>
                     </ul>
                   </div>
                 </details>
+                <!-- Datacollection -->
                 <details>
-                  <summary>Datainsamling av trafikolyckor</summary>
+                  <summary>
+                    <span lang="en">Road Accident Data Collection</span>
+                    <span lang="se">Datainsamling och analys av trafikolyckor</span>
+                  </summary>
                   <div>
                     <ul>
-                      <li>Förbättra konsistensen och tillförlitligheten av Nationell Datainsamling System</li>
-                      <li>Samarbete med andra branschorganisationer (Polisen, Statistikbyrån, Riksvägar)</li>
+                      <li>
+                        <span lang="en">Improving the quality and consistency of the National Road Accident Data Collection System</span>
+                        <span lang="se">Förbättra konsistensen och tillförlitligheten av det Nationella Datainsamlingsystemet</span>
+                      </li>
+                      <li>
+                        <span lang="en">Improving the cooperation between Road Accident Data stakeholders</span>
+                        <span lang="se">Samarbete med andra branschorganisationer (Polisen, Statistikbyrån, Riksvägar)</span>
+                      </li>
                     </ul>
                   </div>
                 </details>
+                <!-- Traffic Counting -->
                 <details>
-                  <summary>Trafikräkning</summary>
+                  <summary>
+                    <span lang="en">Traffic Counting and Traffic Studies</span>
+                    <span lang="se">Trafikmätning och undersökning</span>
+                  </summary>
                   <div>
                     <ul>
-                      <li>Utveckling och övervakning projekt- och permanenta trafikräkningar på Riksvägar</li>
-                      <li>Införing automatiserad utrustning för fordonskategorisering och dynamisk axelviktsmätning</li>
+                      <li>
+                        <span lang="en">Improving and Supervising the Traffic Data Collection System on National Roads</span>
+                        <span lang="se">Utveckling och övervakning projektnivå och permanenta trafikmätningar på Riksvägar</span>
+                      </li>
+                      <li>
+                        <span lang="en">Introducing new technologies for Automatic Vehicle Categorisation and Dynamic Axelweight Measuring</span>
+                        <span lang="se">Införing automatiserad utrustning för fordonskategorisering och dynamisk axelviktsmätning</span>
+                      </li>
                     </ul>
                   </div>
                 </details>
+                <!-- Databank -->
                 <details>
-                  <summary>Klassiska databanksuppgifter - Nationell Vägdatabank (VDB)</summary>
+                  <summary>
+                    <span lang="en">Classic databank tasks at the National Road Databank (VDB)</span>
+                    <span lang="se">Klassiska databanksuppgifter för VDB</span>
+                  </summary>
                   <div>
                     <ul>
-                      <li>Datamanagement</li>
-                      <li>SQL Queries</li>
-                      <li>Rapportering</li>
-                      <li>Kartvisualisering</li>
+                      <li>
+                        <span lang="en">Datamanagement</span>
+                        <span lang="se">Datamanagement</span>
+                      </li>
+                      <li>
+                        <span lang="en">SQL Queries</span>
+                        <span lang="se">SQL Queries</span>
+                          
+                      </li>
+                      <li>
+                        <span lang="en">Generating Reports</span>
+                        <span lang="se">Rapportering</span>
+                      </li>
+                      <li>
+                        <span lang="en">Map Visualizations</span>
+                        <span lang="se">Kartvisualisering</span>
+                      </li>
                     </ul>
                   </div>
                 </details>
+                <!-- PMS -->
                 <details>
-                  <summary><abbr title="Pavement Management System">PMS</abbr></summary>
+                  <summary>
+                    <span lang="en">PMS</span>
+                    <span lang="se">PMS</span>
+                  </summary>
                   <div>
                     <ul>
-                      <li>Deterioration Models med Markov Process</li>
-                      <li>Införa <abbr title="Highway Development and Management Model">HDM-4</abbr></li>
+                      <li>
+                        <span lang="en">Deterioration Models using the Markov Matrix Method</span>
+                        <span lang="se">Deterioration Models med Markov Processen</span>
+                      </li>
+                      <li>
+                        <span lang="en">Introducing <abbr title="Highway Development and Management Model">HDM-4</abbr></span>
+                        <span lang="se">Införa <abbr title="Highway Development and Management Model">HDM-4</abbr></span>
+                      </li>
                     </ul>
                   </div>
                 </details>
+                <!-- Traffic Engineering -->
                 <details>
-                  <summary>Trafikingenjör motorvägar</summary>
+                  <summary>
+                    <span lang="en">Traffic Engineering</span>
+                    <span lang="se">Trafikingenjör</span>
+                  </summary>
                   <div>
                     <ul>
-                      <li>Analysering av trafik- och olycksdata</li>
-                      <li>Utveckling av vägomvägssystem</li>
-                      <li>Utveckling av arbetszonssignalering</li>
+                      <li>
+                        <span lang="en">Analysing traffic and accident data</span>
+                        <span lang="se">Analysering trafik- och olycksdata</span>
+                      </li>
+                      <li>
+                        <span lang="en">Designing de-routing system</span>
+                        <span lang="se">Utveckling av omvägssystem</span>
+                      </li>
+                      <li>
+                        <span lang="en">Designing work zone signalisation</span>
+                        <span lang="se">Utveckling av arbetszonssignalering</span>
+                      </li>
                     </ul>
                   </div>
                 </details>
               </div>
-              <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-                <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-              </p>
+<!--               <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+                <span class="showless-tag w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              </p> -->
             </div>
           </div>
         </div>
@@ -292,115 +492,157 @@
         <!-- OTHER WORKS -->
         <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
           <h2 class="w3-text-grey w3-padding-16">
-            <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Ytterligare Erfarenheter och
-            Kompetenser
+            <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+            <span lang="en">Other Experiences and Competencies</span>
+            <span lang="se">Ytterligare Erfarenheter och Kompetenser</span>
           </h2>
 
           <!--Internatinal Org-->
           <div class="w3-container">
-            <h5 class="w3-text-teal"><b>Arbeta med internationella organisationer</b></h5>
+            <h5 class="w3-text-teal"><b>
+              <span lang="en">Working with International Organizations</span>
+              <span lang="se">Arbeta med internationella organisationer</span>
+            </b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1996 - 2005</h6>
 
             <!--PIARC-->
-            <p onclick="ShowHide(this.nextElementSibling)"
-              class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
+            <p class="entry_as_accordion">
               AIPCR/PIARC World Road Association
-              <br>
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
             </p>
-
-            <div id="ListPIARC" class="w3-container w3-hide collapsingDiv">
+<!--             <p onclick="ShowHide(this.nextElementSibling)"
+              class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
+                AIPCR/PIARC World Road Association
+              <br>
+              <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            </p> -->
+            <div id="ListPIARC" class="panel w3-text-grey">
               <div class="gridContainer2">
-                <div>
+                <div class="w3-container">
                   <img src="https://www.piarc.org/ressources/documents/2398,Logo-HR300.jpg" width="100%"
                     alt="AIPCR/PIARC">
                 </div>
-                <div>
-                  <a href="https://www.piarc.org/en/" target="_blank">AIPCR/PIARC World Road Association</a> är
-                  förmodligen den främsta internationella organisationen
-                  inom området vägunderhållning och utveckling.
-                  Föreningen har nu 121 regeringsmedlemmar över hela världen och innehar rådgivningen status för FN:s
-                  Ekonomiska och Sociala Råd.
-                  Jag hade förmånen att representera Ungern i trafiksäkerhetskommissionen vid AIPCR/PIARC mellan 1996
-                  och 2003.
-                </div>
-                <div>
+                <p class="w3-container">
+                  <span lang="en"><a href="https://www.piarc.org/en/" target="_blank">AIPCR/PIARC World Road Association</a>
+                    is probably the most prominent international organization in the field of road management and development. 
+                    The Association now boasts 124 government members worldwide 
+                    and retains a consultative status to the Economic and Social Council of the United Nations. 
+                    I had the privilage to represent Hungary in AIPCR/PIARC's Road Safety Committee 
+                    between 1996 and 2003.</span>
+                  <span lang="se"><a href="https://www.piarc.org/en/" target="_blank">AIPCR/PIARC World Road Association</a> är
+                    förmodligen den främsta internationella organisationen
+                    inom området vägunderhållning och utveckling.
+                    Föreningen har nu 124 regeringsmedlemmar över hela världen och innehar rådgivningen status för FN:s
+                    Ekonomiska och Sociala Råd.
+                    Jag har representerat Ungern i trafiksäkerhetskommissionen av AIPCR/PIARC mellan 1996 och 2003.</span>
+                  </p>
+                <div class="w3-container">
                   <img
                     src="https://www.piarc.org/ressources/cover/6/14750-Manuel-Securite-Routiere-Association-Mondiale-de-la-Route.jpg"
                     width="100%" alt="RoadSafetyManual">
                 </div>
-                <div style="display:table-cell; vertical-align: middle;">
-                  Ett av föreningens viktigaste insatser under den perioden var
-                  <a href="https://www.piarc.org/en/order-library/6286-en-Road%20Safety%20Manual" target="_blank">Road
-                    Safety Manual</a>.
-                  Mitt bidrag till framgången med Manual var att skriva kapitlet Data Collection.
-                </div>
+                <p class="w3-container" style="display:table-cell; vertical-align: middle;">
+                  <span lang="en">One of the most significant outputs of the Association during that period was the 
+                    <a href="https://www.piarc.org/en/order-library/6286-en-Road%20Safety%20Manual" target="_blank">
+                    Road Safety Manual</a> (1st edition).
+                    My contribution to the Manual was authoring the Data Collection Chapter.</span>
+                  <span lang="se">Ett av föreningens viktigaste utgångarna under den perioden var
+                    <a href="https://www.piarc.org/en/order-library/6286-en-Road%20Safety%20Manual" target="_blank">
+                      Road Safety Manual</a>.
+                    Mitt bidrag till Manualen var att skriva kapitlet Data Collection.</span>
+                </p>
               </div>
-
-              <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-                <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-              </p>
+<!--               <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+                <span class="showless-tag w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              </p> -->
             </div>
 
             <!-- GRSP -->
-            <p onclick="ShowHide(this.nextElementSibling)"
+            <p class="entry_as_accordion">
+              Global Road Safety Partnership (GRSP)
+            </p>
+<!--             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
               Global Road Safety Partnership (GRSP)
               <br>
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-            </p>
-
-            <div id="ListGRSP" class="w3-container w3-hide collapsingDiv">
+              <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            </p> -->
+            <div id="ListGRSP" class="panel w3-text-grey">
               <div class="gridContainer3">
-                <div>
-                  <img src="https://www.grsproadsafety.org/wp-content/uploads/grsproadsafety_logo.png"
-                    style="width:100%" alt="GRSP">
+                <br>
+                <div class="w3-container">
+                  <img src="https://www.grsproadsafety.org/wp-content/themes/grsproadsafety/img/logo-25-years.svg"
+                  style="width:100%" alt="GRSP">
                 </div>
-                <div>
-                  <p>
-                    <a href="https://www.grsproadsafety.org/" target="_blank"><abbr
-                        title="Global Road Safety Partnership">GRSP</abbr></a>s
-                    mål är att skapa och stödja multisektoriella partnerskap
-                    som genomför trafiksäkerhetsprojekt med hjälp av internationella bästa praxis 
-                    i länder över hela världen.
-                    Mellan 2000 och 2005 fungerde jag som program-coordinator för GRSP Ungern.
-                  </p>
-                </div>
+                <p class="w3-container">
+                    <span lang="en">
+                      <a href="https://www.grsproadsafety.org/" target="_blank"><abbr
+                        title="Global Road Safety Partnership">GRSP</abbr></a>'s
+                        aim is to create and support multi-sector road safety partnerships 
+                        that are engaged with front-line good practice road safety interventions 
+                        in countries and communities throughout the world. 
+                        Between 2000 and 2005 I had the opportunity to act 
+                        as the programme coordinator for GRSP Hungary.
+                      </span>
+                    <span lang="se">
+                      <a href="https://www.grsproadsafety.org/" target="_blank"><abbr
+                      title="Global Road Safety Partnership">GRSP</abbr></a>s
+                      mål är att skapa och stödja multisektoriella partnerskap
+                      som genomför trafiksäkerhetsprojekt med hjälp av internationella bästa praxis 
+                      i länder över hela världen.
+                      Mellan 2000 och 2005 fungerade jag som program-coordinator för GRSP Ungern.
+                    </span>
+                    <br>
+                </p>
               </div>
-              <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-                <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-              </p>
+<!--               <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+                <span class="showless-tag w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              </p> -->
             </div>
 
-            <!--Counsil of Europe-->
-            <p>Europeiska unionens råd - Arbetsgrupp för harmonisering av EU körkortslagstiftning</p>
+            <!--Council of Europe-->
+            <p class="entry_with_no_details">
+              <span lang="en">Council of EU - Working Group on the preparation of EU's Driving Licence Legislation</span>
+              <span lang="se">Europeiska unionens råd - Arbetsgrupp för harmonisering av EU körkorts lagstiftning</span>
+            </p>
             <hr>
           </div>
 
           <!--Company Management-->
           <div class="w3-container">
-            <h5 class="w3-text-teal"><b>Erfarenhet inom området företagsledning</b></h5>
+            <h5 class="w3-text-teal"><b>
+              <span lang="en">Experience in Company Management</span>
+              <span lang="se">Erfarenhet inom området företagsledning</span>
+            </b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2002 - 2004</h6>
-            <p>Styrelseledamot i ett regionalt kollektivtrafikföretag i Ungern</p>
+            <p class="entry_with_no_details">
+              <span lang="en">Board Member of a regional public transport company in Hungary</span>
+              <span lang="se">Styrelseledamot i ett regionalt kollektivtrafikföretag i Ungern</span>
+            </p>
             <hr>
           </div>
 
-          <!--Digitale Skills-->
+          <!--Digital Skills-->
           <div class="w3-container">
-            <h5 class="w3-text-teal"><b>Digitala kompetens</b></h5>
+            <h5 class="w3-text-teal"><b>
+              <span lang="en">Digital Competencies</span>
+              <span lang="se">Digitala kompetens</span>
+            </b></h5>
             
             <!-- Datamanagement -->
-            <p>Datamanagement</p>
+            <p class="entry_with_no_details">Datamanagement</p>
 
             <!--GIS-->
-            <p onclick="ShowHide(this.nextElementSibling)"
+            <p class="entry_as_accordion">
+              GIS Applications
+            </p>
+<!--             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
               GIS Applications
               <br>
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
             </p>
-
-            <div id="ListGIS" class="w3-container w3-hide collapsingDiv">
+ -->
+            <div id="ListGIS" class="panel w3-text-grey">
               <div>
                 <ul>
                   <li>ArcView</li>
@@ -412,132 +654,166 @@
                   <li>Folium Map (Python)</li>
                 </ul>
               </div>
-              <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-                <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-              </p>
+<!--               <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+                <span class="showless-tag w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              </p> -->
             </div>
 
-            <!--Coding-->
-            <p onclick="ShowHide(this.nextElementSibling)"
-              class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
-              Programutvekling
-              <br>
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            <!-- Coding Examples -->
+            <p class="entry_as_accordion">
+              <span lang="en">Software Development</span>
+              <span lang="se">Programutvekling</span>
             </p>
-
-            <div id="ListCode2Example" class="w3-container  w3-hide collapsingDiv">
+<!--             <p onclick="ShowHide(this.nextElementSibling)"
+              class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
+              <span lang="en">Software Development</span>
+              <span lang="se">Programutvekling</span>
+              <br>
+              <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+            </p>
+ -->
+            <div id="ListCode2Example" class="panel w3-text-grey">
               
               <!-- Tab Buttons (5) -->
-              <div class="w3-row" style="margin: 0;">
-                <a href="javascript:void(0)" onclick="openTabContent(event, 'tab1');" id="openAtStart">
-                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
-                    style="width:20%; margin: 0;">JavaScript</div>
+              <div class="w3-container w3-row" style="margin: 0;">
+                <a  
+                  href="javascript:void(0)" onclick="openTabContent(event, 'tab1');">
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding-16 w3-center"
+                    style="width:20%; margin: 0;">
+                    <span class="on-large-screen">JavaScript</span>
+                    <span class="on-small-screen">JS</span>
+                  </div>
                 </a>
-                <a href="javascript:void(0)" onclick="openTabContent(event, 'tab2');">
-                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                <a 
+                  href="javascript:void(0)" onclick="openTabContent(event, 'tab2');">
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding-16 w3-center"
                     style="width:20%; margin: 0;">Linux</div>
                 </a>
-                <a href="javascript:void(0)" onclick="openTabContent(event, 'tab3');">
-                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                <a  
+                  href="javascript:void(0)" onclick="openTabContent(event, 'tab3');">
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding-16 w3-center"
                     style="width:20%; margin: 0;">Python</div>
                 </a>
-                <a href="javascript:void(0)" onclick="openTabContent(event, 'tab4');">
-                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                <a id="openTabAtStart"
+                  href="javascript:void(0)" onclick="openTabContent(event, 'tab4');">
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding-16 w3-center"
                     style="width:20%; margin: 0;">Python</div>
                 </a>
-                <a href="javascript:void(0)" onclick="openTabContent(event, 'tab5');">
-                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding w3-center"
+                <a 
+                  href="javascript:void(0)" onclick="openTabContent(event, 'tab5');">
+                  <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding-16 w3-center"
                     style="width:20%; margin: 0;">C#</div>
                 </a>
               </div>
 
               <!-- Tab1 Content -->
               <div id="tab1" class="w3-container tabClass" style="margin: 0;">
-                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
-
-                <h4 class="w3-center">Lägesrapport om Funktionskontroll av Vägmarkering</h4>
+                <h4 class="w3-center">
+                  <span lang="en">Monitoring tool for a Road Marking Survey</span>
+                  <span lang="se">Lägesrapport om Funktionskontroll av Vägmarkering</span>
+                </h4>
                 <ul class="li-centered">
-                  <li>Web Application och Cloud-based Data Visualization</li>
+                  <li>
+                    <span lang="en">Web Applications, Cloud-based Data Visualizations</span>
+                    <span lang="se">Web Application och Cloud-based Data Visualization</span>
+                  </li>
                   <li>HTML/CSS</li>
                   <li>JavaScript</li>
                   <li>Google Apps Script</li>
                 </ul>
-                <a href="https://script.google.com/macros/s/AKfycby6x9j-M31yTR9XPuswcfCHuw0o62swjX92PvDWn13sArwvX1o/exec"
+                <a href="https://script.google.com/macros/s/AKfycbz4eW38FhXbQn7blmpRpQHtHjjIxyk4URWesiZufUkoP-1i4_8L_6j2tM2h08blGpBu/exec"
                   target="_blank">
-                  <img src="https://drive.google.com/uc?export=view&id=1rU3fcwPiUs01TYOYZbcmbJ5vJWk0P-Xv"
-                    style="width:100%" alt="RMTProgressReport_WebApp">
+                  <img src="https://drive.google.com/thumbnail?id=1rU3fcwPiUs01TYOYZbcmbJ5vJWk0P-Xv&sz=w1000" style="width:100%" alt="RMTProgressReport_WebApp">
                 </a>
                 <span class="w3-tag w3-tiny w3-white">
-                  Klicka på bilden för att öppna live webbapplikationen.
-                  (Vänligen tillåt Google Apps Script om tillstånd begärs.)
+                  <span lang="en">
+                    Click on the image to open the live application.
+                    (Pls. allow Google Apps Script to run if asked.)
+                  </span>
+                  <span lang="se">
+                    Klicka på bilden för att öppna live webbapplikationen.
+                    (Vänligen tillåt Google Apps Script om begärs.)  
+                  </span>
                 </span>
               </div>
 
               <!-- Tab2 Content -->
               <div id="tab2" class="w3-container tabClass" style="margin: 0;">
-                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
-                <h4 class="w3-center">Kartvisualisering av Vägytemätningsresultat</h4>
+                <h4 class="w3-center">
+                  <span lang="en">Map visualization of Road Surface Measurement data</span>
+                  <span lang="se">Kartvisualisering av Vägytemätningsresultat</span>
+                  
+                </h4>
                 <ul class="li-centered">
                   <li>Linux Bash</li>
                   <li>Google Earth, KMZ</li>
                 </ul>
-                <img src="https://drive.google.com/uc?export=view&id=1hn0gHjB-nerdNmWx97wPp33fuosJGw3j"
+                <img src="https://drive.google.com/thumbnail?id=1hn0gHjB-nerdNmWx97wPp33fuosJGw3j&sz=w1000"
                   style="width:100%" alt="GoogleEarthVisualization-KMZ">
               </div>
 
               <!-- Tab3 Content -->
               <div id="tab3" class="w3-container tabClass" style="margin: 0;">
-                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
-                <h4 class="w3-center">Kartvisualisering av Vintervägmätningsresultat</h4>
+                <h4 class="w3-center">
+                  <span lang="en">Map visualization of Winter Friction Survey Data</span>
+                  <span lang="se">Kartvisualisering av Vintervägmätningsresultat</span>
+                  
+                </h4>
                 <ul class="li-centered">
                   <li>Python</li>
                   <li>Folium Map, OpenStreetMap</li>
                 </ul>
-                <img src="https://drive.google.com/uc?export=view&id=1g7jN4XZeEU4OTkeBQOnVx8HKzU-HIIY9"
+                <img src="https://drive.google.com/thumbnail?id=1g7jN4XZeEU4OTkeBQOnVx8HKzU-HIIY9&sz=w1000"
                   style="width:100%; display:block; margin:auto" alt="ViaFrictionVisualization-FOLIUM">
               </div>
 
               <!-- Tab4 Content -->
               <div id="tab4" class="w3-container tabClass" style="margin: 0;">
-                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
-                <h4 class="w3-center">Rapport om Vinter Friktionmätning</h4>
+                <h4 class="w3-center">
+                  <span lang="en">Report of a Winter Friction Measurement</span>
+                  <span lang="se">Rapport om Vinter Friktionmätning</span>
+                  
+                </h4>
                 <ul class="li-centered">
                   <li>Python</li>
                   <li>PDF</li>
                 </ul>
-                <img src="https://drive.google.com/uc?export=view&id=1qAJgHBWKYeGhkLoZ2iLjiWwROVpIa0Sz"
+                <img src="https://drive.google.com/thumbnail?id=1qAJgHBWKYeGhkLoZ2iLjiWwROVpIa0Sz&sz=w1000"
                   style="width:70%; display:block; margin:auto" alt="ViaFrictionVisualization-PDF">
               </div>
 
               <!-- Tab5 Content -->
               <div id="tab5" class="w3-container tabClass" style="margin: 0;">
-                <!--span onclick="this.parentElement.style.display='none'" class="closeBtn">&times</span-->
-                <h4 class="w3-center">Reporting Tool för Vinter Friktionmätning</h4>
+                <h4 class="w3-center">
+                  <span lang="en">Reporting Tool for Winter Friction Surveys</span>
+                  <span lang="se">Reporting Tool för Vinter Friktionmätning</span>
+                </h4>
                 <ul class="li-centered">
                   <li>C#, .Net Windows Presentation Foundation</li>
                   <li>Python</li>
                 </ul>
-                <img src="https://drive.google.com/uc?export=view&id=13d8strfcNlMpNnzDwfG5Jj3nRE6Eu04J"
+                <img src="https://drive.google.com/thumbnail?id=13d8strfcNlMpNnzDwfG5Jj3nRE6Eu04J&sz=w1000"
                   style="width:100%; display:block; margin:auto" alt="ViaFrictionReportingTool">
               </div>
 
-              <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-                <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
-              </p>
+<!--               <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+                <span class="showless-tag w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              </p> -->
             </div>
-
-
-
-
-
             <hr>
           </div>
 
           <!--Career Break-->
           <div class="w3-container">
-            <h5 class="w3-text-teal"><b>Karriärpaus</b></h5>
+            <h5 class="w3-text-teal"><b>
+              <span lang="en">Career Break</span>
+              <span lang="se">Karriärpaus</span>
+            </b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2005 - 2013</h6>
-            <p>Tillfälligt arbete för NGO i Kina och i Filippinerna.</p>
+            <p class="entry_with_no_details">
+              <span lang="en">Occasional work for NGOs in China and the Philippines.</span>
+              <span lang="se">Tillfälligt arbete för NGO i Kina och i Filippinerna.</span>
+            </p>
           </div>
         </div>
 
@@ -546,16 +822,23 @@
 
           <h2 class="w3-text-grey w3-padding-16">
             <i class="fa fa-graduation-cap fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
-            Utbildning
+            <span lang="en">Education</span>
+            <span lang="se">Utbildning</span>
           </h2>
 
           <!--University-->
           <div class="w3-container">
             <h5 class="w3-text-teal">
-              <b>Tekniska Universitetet Budapest - Ungern</b>
+              <b>
+                <span lang="en">Technical University of Budapest</span>
+                <span lang="se">Tekniska Universitetet Budapest - Ungern</span>
+              </b>
             </h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1982 - 1988</h6>
-            <p>Civilingenjör - Väg och Järnväg</p>
+            <p class="entry_with_no_details">
+              <span lang="en">Civil Engineering - Roads and Railways</span>
+              <span lang="se">Civilingenjör - Väg och Järnväg</span>
+            </p>
             <hr>
           </div>
 
@@ -563,21 +846,37 @@
           <div class="w3-container">
             <h5 onclick="ShowHide(this.nextElementSibling)"
               class="w3-text-teal w3-hover-light-grey w3-hover-text-teal w3-block w3-left-align clickHeretoShowHide">
-              <b>Andere diplom och utbildningar</b>
+              <b>
+                <span lang="en">Other Diplomas and Trainings</span>
+                <span lang="se">Andra diplom och utbildningar</span>
+              </b>
               <br>
-              <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
             </h5>
             <div id="ListAndereDiplomas" class="w3-container w3-hide collapsingDiv">
               <div>
                 <ul>
-                  <li>Examen i Offentlig förvaltning</li>
-                  <li>GPS/GIS Technologies - ArcView GIS Training</li>
-                  <li>Säker Kör Träning - Gerhard Berger Training Center</li>
-                  <li>Highway Development and Management Model (HDM-4)</li>
+                  <li>
+                    <span lang="en">Diploma on Public Administration</span>
+                    <span lang="se">Examen i Offentlig Förvaltning</span>
+                  </li>
+                  <li>
+                    <span lang="en">GPS/GIS Technologies - ArcView GIS Training</span>
+                    <span lang="se">GPS/GIS Technologies - ArcView GIS Training</span>
+                  </li>
+                  <li>
+                    <span lang="en">Safe Driving - Gerhard Berber Training Center</span>
+                    <span lang="se">Säker Kör Träning - Gerhard Berger Training Center</span>
+                  </li>
+                  <li>
+                    <span lang="en">Highway Development and Management Model (HDM-4) - a World Bank course</span>
+                    <span lang="se">Highway Development and Management Model (HDM-4) - World Bank kurs</span>
+                    
+                  </li>
                 </ul>
               </div>
-              <p onclick="Hide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
-                <span class="w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
+              <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
+                <span class="showless-tag w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
               </p>
             </div>
           </div>
@@ -598,6 +897,6 @@
 
   <!--JAVASCRIPT-->
   <script src="cvscripts.js"></script>
-</body>
+  </body>
 
 </html>

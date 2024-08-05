@@ -1,11 +1,174 @@
       html, body, h1, h2, h3, h4, h5, h6 {font-family: "Roboto", sans-serif;}
       
+      body {
+        cursor: default;
+      }
+
+      hr { 
+        border-top: 1px solid #aaa;
+      }
+
+      div[class*="w3-card-"] { border-radius:4px;}
+      #PVphoto {border-radius:4px 4px 0 0;}
+
+      /*
+      Accordion, opening panel
+      */
+      .entry_as_accordion {
+        position: relative;
+        text-align: left;
+        background-color: white;
+        padding: 1em 0em 1em 1em;
+        margin: 0;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+      }
+
+      .entry_as_accordion:hover{
+        background-color: ghostwhite;
+      }
+
+      .entry_as_accordion::before {
+        display: inline-block;
+        width: 1em;
+        content: '\002B';
+        opacity: 0.8;
+        color: grey;
+        font-weight: bold;
+      }
+      
+      .active {
+        background-color: ghostwhite;
+      }
+
+      .active::before {
+        display: inline-block;
+        width: 1em;
+        content: "\2212";
+      }
+
+      .panel {
+        padding: 0.5em 0 0 2.25em;
+        font-style: italic;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out, opacity 0.4s;
+      }
+
+
+
+      .entry_with_no_details {
+        position: relative;
+        background-color: white;
+        text-align: left;
+        padding: 1em 0em 1em 2.25em;
+        margin: 0em;
+        width: 100%;
+        border: none;
+        outline: none;
+        cursor: default;
+      }
+
+
+
+
+
+      label { display: inline }
+
+      label > input { /* HIDE RADIO (circle)*/
+        visibility: hidden; /* Makes input not-clickable */
+        position: absolute; /* Remove input from document flow */
+      }
+
+      label > input + img { /* IMAGE STYLES */
+        cursor:pointer;
+        opacity: 0.2;
+      }
+      label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+        opacity: 1.0;
+      }
+
+
+
+
+
+      /*Language selection*/
+
+      .countryFlagButton {
+        width: 7%;
+        opacity: 0.2;
+        margin: 0; 
+        padding: 0;
+      }
+
+      body[lang="en"] span[lang]:not([lang=en]), /* if <body lang=en>, hide all span where lang<>en*/
+      body[lang="se"] span[lang]:not([lang=se]), /* if <body lang=se>, hide all span where lang<>se*/
+      body[lang="nl"] span[lang]:not([lang=nl]){ /* if <body lang=nl>, hide all span where lang<>nl*/
+          display: none;
+      }
+
+      p.multiLanguageText {
+        /* font-size: 0; */
+        white-space: nowrap;
+        /* float: left; */
+      }
+
+
+
       .li-centered {
         display: table; 
         margin: 0 auto;
         text-align: left;
       }
       
+
+      /*
+      DETAILS and SUMMARY
+      Expandable "details" elements with "summary" as opening button
+      */
+      details {
+        padding: 0.5em 0.5em 0;
+        margin-bottom: 0.5em;
+      }
+
+      summary {
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+        list-style: none;
+        cursor: pointer;
+      }
+
+      summary:hover {
+        background-color: ghostwhite;
+      }
+
+      summary::before{ 
+        content: '\002B';
+        font-weight: normal;
+      }
+
+      details[open] {
+        background-color: ghostwhite;
+        border: 0px dashed #aaa;
+        border-radius: 8px;
+        padding: 0.5em 0.5em 0.5em 0.5em;
+      }
+      
+      details[open] summary{
+        border-bottom: 0.5px dashed #aaa;
+        margin-bottom: 0.5em;
+      }
+
+      details[open] summary::before{
+        content: '\2212';
+        font-weight: normal;
+      }
+
+
       /* COLLAPSABLE CONTENT*/
       /* All elements with "clickHereto" string in their classnames */
       [class*="clickHereto"], [class*="clickHereto"] span {
@@ -13,18 +176,34 @@
         padding-left:0em; 
         margin-left:0em;
       }
-      /* Feed text into more/less buttons */
-      .clickHeretoShowHide span::before {
-        content: "▽ mer/mindre △";
+
+      /* Add text to more/less tag buttons */
+      /*If body lang="en"*/
+      body[lang="en"] span.showmoreless-tag::before {
+        content: "▽ show more/less △";
         font-style: italic;
         color:gray;
       }
-      .clickHeretoHide span::before {
+      body[lang="en"] span.showless-tag::before {
+        content: "△ hide";
+        font-style: italic;
+        color:gray;
+      }
+
+      /*If body lang="se"*/
+      body[lang="se"] span.showmoreless-tag::before {
+        content: "▽ visa mer/mindre △";
+        font-style: italic;
+        color:gray;
+      }
+      body[lang="se"] span.showless-tag::before {
         content: "△ dölj";
         font-style: italic;
         color:gray;
       }
     
+
+
       /* Set Collapsing div */
       .collapsingDiv {
         font-style: italic;
@@ -38,7 +217,7 @@
         margin:0em 2em 0em 2em;
       }
 
-      /* "DETAILS/SUMMARY" */
+      /* "DETAILS/SUMMARY"
       details > summary {
         margin-left: 0em;
         border: none;
@@ -48,6 +227,7 @@
       details > div {
         margin-left: 0em;
       }
+      */
 
 
 
@@ -91,6 +271,7 @@
         text-align: justify;
       }
 
+
 /* Style tabcontent */
 .tabClass {
   display: none;
@@ -108,15 +289,39 @@
   to {opacity: 1;}
 }
 
+/*
+Change some texts according to screen width
+*/
+@media screen and (min-width:701px){
+    .on-large-screen {
+    display: inline-block;
+  }
 
-/* Style the close button in tabcontent */
-.closeBtn {
-  padding-top: 0;
-  float: right;
-  vertical-align: text-top;
-  cursor: pointer;
-  font-size: 28px;
+  .on-small-screen {
+    display: none;
+  }
 }
 
-.closeBtn:hover {color: red;}
-      
+@media screen and (max-width:700px){
+  .on-large-screen {
+    display: none;
+  }
+
+  .on-small-screen {
+    display: inline-block;
+  }
+}
+
+/* Style tabcontent */
+/* .tabClass {
+  opacity: 0;
+  display: none;
+  transition: display 1s allow-discrete, opacity 1s;
+}
+
+.tabShow {
+  display: block;
+  opacity: 1;
+}
+ */
+
