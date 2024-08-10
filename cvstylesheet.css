@@ -10,6 +10,22 @@
 
       div[class*="w3-card-"] { border-radius:4px;}
       #PVphoto {border-radius:4px 4px 0 0;}
+/*      #ecim {display: none;}
+      #telszam {display: none;}
+
+      #ecim:has(.w3-hide) #fetchAllDetails{
+        display: none;
+      }
+      */
+
+      /*
+      Truncate long texts at...
+      */
+      h1, h2, h3, h4, h5, h6, summary, #leftPane p {
+        overflow:hidden; 
+        white-space:nowrap; 
+        text-overflow: ellipsis;
+      }
 
       /*
       Accordion, opening panel
@@ -92,14 +108,10 @@
         opacity: 1.0;
       }
 
-
-
-
-
       /*Language selection*/
-
-      .countryFlagButton {
-        width: 7%;
+      .flagRadioBtn {
+        height: 1em;
+        width: 1.5em;
         opacity: 0.2;
         margin: 0; 
         padding: 0;
@@ -107,7 +119,8 @@
 
       body[lang="en"] span[lang]:not([lang=en]), /* if <body lang=en>, hide all span where lang<>en*/
       body[lang="se"] span[lang]:not([lang=se]), /* if <body lang=se>, hide all span where lang<>se*/
-      body[lang="nl"] span[lang]:not([lang=nl]){ /* if <body lang=nl>, hide all span where lang<>nl*/
+      body[lang="nl"] span[lang]:not([lang=nl]), /* if <body lang=nl>, hide all span where lang<>nl*/
+      body[lang="hu"] span[lang]:not([lang=hu]){ /* if <body lang=nl>, hide all span where lang<>nl*/
           display: none;
       }
 
@@ -201,7 +214,28 @@
         font-style: italic;
         color:gray;
       }
-    
+
+      body[lang="nl"] span.showmoreless-tag::before {
+        content: "▽ meer/minder info △";
+        font-style: italic;
+        color:gray;
+      }
+      body[lang="nl"] span.showless-tag::before {
+        content: "△ sluit";
+        font-style: italic;
+        color:gray;
+      }
+
+      body[lang="hu"] span.showmoreless-tag::before {
+        content: "▽ több/kevesebb info △";
+        font-style: italic;
+        color:gray;
+      }
+      body[lang="hu"] span.showless-tag::before {
+        content: "△ elrejt";
+        font-style: italic;
+        color:gray;
+      }
 
 
       /* Set Collapsing div */
@@ -291,7 +325,7 @@
 
 /*
 Change some texts according to screen width
-*/
+
 @media screen and (min-width:701px){
     .on-large-screen {
     display: inline-block;
@@ -306,6 +340,41 @@ Change some texts according to screen width
   .on-large-screen {
     display: none;
   }
+
+  .on-small-screen {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:700px){
+.on-large-screen {
+  display: none;
+}
+
+.on-small-screen {
+  display: inline-block;
+}
+}
+*/
+
+#codeExamplesBtns {
+  container-type: inline-size;
+}
+
+@container (min-width: 350px){
+  .on-large-screen {
+  display: inline-block;
+  }
+
+  .on-small-screen {
+    display: none;
+  }
+}
+
+@container (max-width: 351px){
+  .on-large-screen {
+  display: none;
+} 
 
   .on-small-screen {
     display: inline-block;

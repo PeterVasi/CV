@@ -1,3 +1,6 @@
+var fetchBtnClicked = 0;
+
+
 /**
  * Add Eventlisteners to accordion elements
  * (start with a + sign)
@@ -94,45 +97,53 @@ function changeLang(lang){
 
 /**
  * Change the language of the CV to the default language
- * by selecting the country flag 
- * to which corresponds the User's browser language.
+ * by selecting the country flag. 
  * Clicking a flag triggers changeLang() too.
+ * Change lang to the User's browser language.
  */
 function setDefaultLanguage (){
+    function changeToBrowserLanguage(){
+        // Get browser language
+        const getNavigatorLanguage = () => {
+            if (navigator.languages && navigator.languages.length) {
+                return navigator.languages[0];
+            } else {
+                return navigator.userLanguage || 
+                navigator.language || 
+                navigator.browserLanguage || 
+                'en-US'; // If all other fails, return English
+            }
+        };
+        // Select the same language as that of the browser by clicking on the corresponding flag.
+        //const browserLang = getNavigatorLanguage().trim().split("-").shift().toLowerCase(); // Get first/prefered language.
+        const browserLang = getNavigatorLanguage().trim().substring(0,2).toLowerCase(); // Get first/prefered language.
+        const flagTag = document.querySelector("input[name=countryFlags][value='" + browserLang + "']");
+         // If country flag corresponding the browser language found, click it.
+         if (flagTag){flagTag.click()}
+    }
+
     // Set document's language to the default
     const defaultLang = "se";
     const defLangFlag = document.querySelector("input[name=countryFlags][value='" + defaultLang + "']");    
-    if (defLangFlag){ // The default language's flag found, click it.
-        defLangFlag.click();
+    if (defLangFlag){ 
+        defLangFlag.click(); // The default language's flag found, click it.
     } else { // Set document's language anyway.
         changeLang({value:defaultLang});
     }
 
     // Change document's language to User's browser language
-    // Get browser language
-    const getNavigatorLanguage = () => {
-      if (navigator.languages && navigator.languages.length) {
-          return navigator.languages[0];
-        } else {
-          return navigator.userLanguage || 
-          navigator.language || 
-          navigator.browserLanguage || 
-          'en-US'; // If all other fails, return English
-        }
-    };
-    const browserLang = getNavigatorLanguage().trim().split("-").shift().toLowerCase(); // Get first/prefered language.
-    // Select the same language as that of the browser by clicking on the corresponding flag.
-    const flagTag = document.querySelector("input[name=countryFlags][value='" + browserLang + "']");
-    if (flagTag){ // If country flag of the browser language found, click it.
-        flagTag.click();
-    }
+    changeToBrowserLanguage();
 }
 
+function deleteFetchBtn(){
+    const buttonElement = document.getElementById("fetchAllDetails");
+    if(buttonElement){buttonElement.remove();}
+}
 
 /**
  * Fill in personal data (email, phone, etc.)
  */
-function fillInMyData(){
+function fillInMyData(DriveData={}){
     var Base64 = {
         _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
         encode: function(input) {
@@ -168,12 +179,14 @@ function fillInMyData(){
       
       
         decode: function(input) {
+            if (!input || input.trim().length == 0){return ""}
+
             var output = "";
             var chr1, chr2, chr3;
             var enc1, enc2, enc3, enc4;
             var i = 0;
       
-            input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+            input = input.trim().replace(/[^A-Za-z0-9\+\/\=]/g, "");
     
             while (i < input.length) {
     
@@ -258,25 +271,167 @@ function fillInMyData(){
         }
     }
 
-    //encoded data
-    var my_details = [
-        {id:"lakcim", string64:"Qm9kZW4sIE5vcnJib3R0ZW4="},
-        {id:"ecim", string64:"MnBldGVydmFzaUBnbWFpbC5jb20="},
-        // {id:"telszam", string64:"KzQ2IDczIDk0OCA2MCA4Mw=="}
-    ]
+    /* 
+        No data from Drive! 
+        use default data instead. 
+    */
+    //DriveData = {} // For testing the case when we have no data from Drive
+    var defaultContactInfo = {
+        "nev": {"default":"UGV0ZXIgVmFzaQ=="},
+        "lakcim":{"default":"Qm9kZW4sIE5vcnJib3R0ZW4="}
+    }    
+    if (Object.keys(DriveData).length == 0){
+        // Scan document span elements for lng values, make a Set with unique values
+        let languagesInDoc = new Set();
+        document.querySelectorAll('span[lang]').forEach(e=>languagesInDoc.add(e["lang"]));
+        // Fill up DriveData with default values
+        for (let [key, val] of Object.entries(defaultContactInfo)){
+            DriveData[key] = {};
+            languagesInDoc.forEach(lang => DriveData[key][lang]=val["default"])
+        }
+        console.log("No data from Drive, default data used: ", DriveData);
+    }
 
-    for (let x of my_details){
-        const my_element = document.getElementById(x["id"]);
-        if (my_element){
-            const spanElements = my_element.querySelectorAll("span[lang]"); //span elements with lang attribute
-            if (spanElements){
-                for (let spanElement of spanElements){
-                    spanElement.innerHTML = Base64.decode(x["string64"]); //replace node's content
-                }
-            }
+    /**
+     * Fill in Contact Info spans from DriveData
+    */
+    for (let [key, langDataObj] of Object.entries(DriveData)) {
+        const contactInfoElement = document.getElementById(key);
+        if(contactInfoElement){
+            contactInfoElement.querySelectorAll('span[lang]').forEach(span => {
+                let decodedString = "";
+                    try{
+                        decodedString = Base64.decode(langDataObj[span["lang"]]);
+                    }
+                    catch(err){
+                        decodedString = "-";
+                    }
+                    span.innerHTML = decodedString;
+                    contactInfoElement.classList.remove("w3-hide");
+            });    
         }
     }
+    /**
+     * Delete the "fetchAllDetails" button if all p elements are visible,
+     * meaning all contact info have been retrieved already.
+     */
+    if(!document.querySelector(".contact-info.w3-hide")){deleteFetchBtn()}
 }
+
+/**
+ * Fetch data from Drive as text
+ * clip the json part,
+ * parse JSON,
+ * extract data,
+ * fill into contact info span tags.
+ * @param {*} queryString 
+ * @returns 
+ */
+function fetchDataFromDrive(queryString) {
+    if (fetchBtnClicked > 3){
+        console.log("fetch btn clicked: ", fetchBtnClicked, "times. No more fetch!");
+        deleteFetchBtn();
+        return;
+    };
+    const apiKey = "AIzaSyC4gIYEKnBAcesxJXbPUINvgKpT8i6NlMg";
+    const SsId = "1sT5-RTxGebv3Ty7hHAaWhZp9c_pQh9N6NvWbX3DuYn8";
+    const sheetName = "Sheet1";
+    const gid = "0";
+    //const url1 = 'https://docs.google.com/spreadsheets/d/'+SsId+'/gviz/tq?tqx=out:json&tq&gid='+gid;
+    //const url2 = 'https://sheets.googleapis.com/v4/spreadsheets/' + SsId + '/values/' + sheetName + '?key=' + apiKey + "'";
+
+    function convertToJSON(responseAsText){
+        let jsonData = {};        
+        const JSONstring = (text, startAt = '{', stopAt = '}') => {
+            // From
+            let startId = text.indexOf(startAt);
+            if (startId >= 0){startId = startId + startAt.length - 1};
+
+            // Until
+            let stopId = text.lastIndexOf(stopAt);
+            if (stopId >= 0){stopId = stopId + 1};
+
+            if (startId >= 0 && 
+                stopId >= 0 && 
+                stopId > startId && 
+                stopId < text.length
+            ){
+                // Substring containing JSON only
+                return text.substring(startId, stopId);
+            }
+            return "";
+        }
+        //console.log("text",responseAsText);
+        //console.log("json text",JSONstring);
+
+        try {
+            jsonData = JSON.parse(JSONstring(responseAsText, '{', '}'));
+        } catch (e) {
+            console.log("Error when parsing data to JSON", e);
+            console.log("JSONstring:", JSONstring);
+        }
+        //console.log("jsonData", jsonData);
+        return jsonData;
+    }
+
+    const extractData = (JSONdata={}) => {
+        let objOfData = {};
+        if(JSONdata.hasOwnProperty('table') && 
+            JSONdata["table"].hasOwnProperty('rows') &&
+            JSONdata["table"]["rows"].length > 0 &&
+            JSONdata["table"]["rows"].every(row => row.hasOwnProperty("c") || row["c"].length > 0)
+        ){
+            //console.log("tableData",data["table"]);
+            function hasMeaningfulValue(item){
+                return item != null && item.hasOwnProperty('v') && item["v"] != null;
+            }
+
+            const rows = JSONdata.table.rows;
+            const colHeadersArr = rows[0]["c"].map((element, index) => hasMeaningfulValue(element) ? element["v"] : "dummyLang_" + index)
+            //console.log("header", colHeadersArr)
+            let rowTitle, colHeader, cellData, cellValue;
+            for(let r = 0; r<rows.length; r++){
+                //if(r === 0){continue} // Header row
+                const rowDataArr = rows[r]["c"].map((element) => hasMeaningfulValue(element) ? element["v"] : "LQ==")
+                rowTitle = hasMeaningfulValue(rows[r]["c"][0]) ? rows[r]["c"][0]["v"] : "dummyObj_" + r;
+                /**
+                 * Pair "colHeadersArr" and "rowDataArr" into an object as key, value and add it to "objOfData"
+                 * Should look like:
+                 * objOfData={  nev:{lang1:string, lang2:string, ...},
+                 *              lakcim:{lang1:string, lang2:string, ...}.
+                 *              ....
+                 *            }
+                 */
+                objOfData[rowTitle] = Object.fromEntries(colHeadersArr.map((key, index) => [key, rowDataArr[index]]));
+                //console.log("rowDataArr", rowDataArr)
+                //console.log("rowObj", rowObj)
+            }
+        }
+        console.log("objOfData:", objOfData);
+        // Fill in contact data on page (pass it further even if empty)
+        fillInMyData(objOfData);
+    }
+
+    const getSheetData = ({sheetId, sheetName, query, callback}) => {
+        const urlbase = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
+        const url = `${urlbase}&sheet=${encodeURIComponent(sheetName)}&tq=${encodeURIComponent(query)}`;
+        fetch(url)
+        .then((resp) => resp.text())
+        .then((response) => {
+            callback(convertToJSON(response))
+        })
+        .catch(error => console.log('Error while fetching data from Drive: ', error));
+    }
+
+    // Call the fetching
+    getSheetData({
+        sheetId:SsId,
+        sheetName:sheetName,
+        query:queryString ? queryString : "select *",
+        callback:extractData,
+    });
+}
+
 
 /**
  * Run these on Start Up
@@ -286,6 +441,7 @@ document.onreadystatechange = function () {
         setDefaultLanguage();
         selectDefaultTab();
         addAccordionEventListeners();
-        fillInMyData();
+        // Fetch nev and lakcim data from Drive
+        fetchDataFromDrive(queryString='select * where (A is null and B is not null) or A like "nev" or A like "lakcim"');
     }
 }

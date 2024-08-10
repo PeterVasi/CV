@@ -2,7 +2,7 @@
 <!--html lang="sv-se"-->
 
   <head>
-    <title>Peter Vasi</title>
+    <title>Peter</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -21,50 +21,79 @@
     <div class="w3-row-padding">
 
       <!-- LEFT PANE -->
-      <div class="w3-third">
+      <div id="leftPane" class="w3-third">
 
         <!-- Photo, CountryFlags and Contact Info -->
         <div class=" w3-text-grey w3-card-4 w3-white w3-margin-bottom">
           <div class="w3-display-container">
             <img id="PVphoto" src="https://drive.google.com/thumbnail?id=134iglTNQfUfUcanZFvecHkGYhyFTSKUL&sz=w1000" style="width:100%;" alt="PVasi">
             <div class="w3-display-bottomleft w3-container w3-text-white" style="display: inline-flex;">
-              <h2>Peter Vasi</h2>
+              <h2 id="nev" class="contact-info">
+                <span lang="en">Peter</span>
+                <span lang="se">Peter</span>
+                <span lang="nl">Peter</span>
+                <span lang="hu">Péter</span>
+              </h2>
             </div>
           </div>
 
           <!-- Country Flags as Radio buttons -->
-          <div class="w3-container w3-section">
-            <label class="flagRadioBtn">
+          <div class="w3-container">
+            <label>
               <input type="radio" id="countryFlagUK" name="countryFlags" value="en" onclick="changeLang(this);"/>
-              <img src="UKflag-square-250.png" style="width: 7%;" title="click here for English" alt="en">
+              <img class="flagRadioBtn" src="https://flagcdn.com/w40/gb.webp" title="click here for English" alt="en">
             </label>
-            <label class="flagRadioBtn">
+            <label>
               <input type="radio" id="countryFlagSE" name="countryFlags" value="se" onclick="changeLang(this);"/>
-              <img src="SEflag-square-250.png" style="width: 7%;" title="klicka här för svenska" alt="se">
+              <img class="flagRadioBtn" src="https://flagcdn.com/w40/se.webp" title="klicka här för svenska" alt="se">
             </label>
-            <label class="flagRadioBtn">
-              <input type="radio" id="countryFlagNL" name="countryFlags" value="nl" onclick="changeLang(this);" disabled/>
-              <img src="NLflag-square-250.png" style="width: 7%;" title="klik hier voor nederlands" alt="nl">
+            <label>
+              <input type="radio" id="countryFlagNL" name="countryFlags" value="nl" onclick="changeLang(this);"/>
+              <img class="flagRadioBtn" src="https://flagcdn.com/w40/nl.webp" title="klik hier voor nederlands" alt="nl">
+            </label>
+            <label>
+              <input type="radio" id="countryFlagHU" name="countryFlags" value="hu" onclick="changeLang(this);"/>
+              <img class="flagRadioBtn" src="https://flagcdn.com/w40/hu.webp" title="magyarul" alt="hu">
             </label>
           </div>
 
           <!-- Contact Info -->
           <div class="w3-container">
-            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
+            <p id="foglalkozas" class="contact-info"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
               <span lang="en">civil engineer</span>
               <span lang="se">civilingenjör</span>
+              <span lang="nl">burgerlijk ingenieur</span>
+              <span lang="hu">építőmérnök</span>
             </p>
-            <p id="lakcim"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
+            <p id="lakcim" class="contact-info"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
               <span lang="en">address</span>
               <span lang="se">adress</span>
+              <span lang="nl">adres</span>
+              <span lang="hu">cim</span>
             </p>
-            <p id="ecim"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
+
+            <a id="fetchAllDetails" href="javascript:void(0)" 
+              onclick="this.disabled='true'; fetchBtnClicked +=1; fetchDataFromDrive();" 
+              class="w3-block w3-btn w3-ripple w3-margin-bottom w3-round-medium w3-light-grey w3-text-teal">
+              <p>
+                <span lang="en">See Contact Info</span>
+                <span lang="se">Kontaktuppgifter</span>
+                <span lang="nl">Contactgegevens</span>
+                <span lang="hu">Kontakt adatok</span>
+              </p>
+            </a>
+
+            <p id="ecim" class="contact-info w3-hide"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
               <span lang="en" style="cursor: text;">e-mail</span>
               <span lang="se" style="cursor: text;">e-post</span>
+              <span lang="nl" style="cursor: text;">e-mail</span>
+              <span lang="hu" style="cursor: text;">email</span>
             </p>
-            <p id="telszam"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
+            <p id="telszam"  class="contact-info w3-hide"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
               <span lang="en">-</span>
               <span lang="se">-</span>
+              <span lang="nl">-</span>
+              <span lang="hu">-</span>
             </p>
           </div>
         </div>
@@ -75,10 +104,14 @@
             <p class="w3-large"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><b>
               <span lang="en">Competencies</span>
               <span lang="se">Kompetens</span>
-            </b></p>
+              <span lang="nl">Vaardigheden</span>
+              <span lang="hu">Ismeretek</span>
+              </b></p>
             <p>
               <span lang="en">Datamanagement</span>
               <span lang="se">Datamanagement</span>
+              <span lang="nl">Datamanagement</span>
+              <span lang="hu">Adatfeldolgozás</span>
             </p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
               <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:85%">85%</div>
@@ -86,6 +119,8 @@
             <p>
               <span lang="en">Fieldwork</span>
               <span lang="se">Fältarbete</span>
+              <span lang="nl">Veldwerk</span>
+              <span lang="hu">Terepmunka</span>
             </p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
               <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
@@ -93,6 +128,8 @@
             <p>
               <span lang="en">Project Management</span>
               <span lang="se">Project Management</span>
+              <span lang="nl">Project Management</span>
+              <span lang="hu">Projektvezetés</span>
             </p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
               <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
@@ -100,6 +137,8 @@
             <p>
               <span lang="en">Software Development</span>
               <span lang="se">Programutveckling</span>
+              <span lang="nl">Software Ontwikkeling</span>
+              <span lang="hu">Programozás</span>
             </p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
               <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:60%">60%</div>
@@ -110,11 +149,15 @@
             <p class="w3-large w3-text-theme"><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i><b>
               <span lang="en">Language Skills</span>
               <span lang="se">Språk</span>
+              <span lang="nl">Talen</span>
+              <span lang="hu">Nyelvismeret</span>
             </b>
             </p>
             <p>
               <span lang="en">Hungarian</span>
               <span lang="se">Ungerska</span>
+              <span lang="nl">Hongaars</span>
+              <span lang="hu">Magyar</span>
             </p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
@@ -122,6 +165,8 @@
             <p>
               <span lang="en">English</span> <!--span lang="en"><i>(preferred language for now)</i></span-->
               <span lang="se">Engelska</span> <!--span lang="se"> <i>(det prioriterade språket för tillfället)</i></span-->
+              <span lang="nl">Engels</span>
+              <span lang="hu">Angol</span>
             </p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:90%"></div>
@@ -129,6 +174,8 @@
             <p>
               <span lang="en">Dutch</span>
               <span lang="se">Holländska</span>
+              <span lang="nl">Nederlands</span>
+              <span lang="hu">Holland</span>
             </p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:50%"></div>
@@ -136,6 +183,8 @@
             <p>
               <span lang="en">Swedish</span>
               <span lang="se">Svenska</span>
+              <span lang="nl">Zweeds</span>
+              <span lang="hu">Svéd</span>
             </p>
             <div class="w3-light-grey w3-round-xlarge">
               <div class="w3-round-xlarge w3-teal" style="height:24px;width:30%"></div>
@@ -151,22 +200,30 @@
 
 
       <!-- RIGHT PANE -->
-      <div class="w3-twothird">
+      <div id="rightPane" class="w3-twothird">
 
         <!-- Personal Characteristics # -->
         <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
           <p class="w3-text-teal w3-padding-small"><i>
             <span lang="en">#analytical thinking</span>
             <span lang="se">#analytiskt tankesätt</span>
+            <span lang="nl">#analytisch denken</span>
+            <span lang="hu">#analitikus gondolkodás</span>
             <br>
             <span lang="en">#systems approach</span>
             <span lang="se">#systems approach</span>
+            <span lang="nl">#systeem benadering</span>
+            <span lang="hu">#rendszerszemlélet</span>
             <br>
             <span lang="en">#flexibility</span>
             <span lang="se">#flexibilitet</span>            
+            <span lang="nl">#flexibiliteit</span>
+            <span lang="hu">#rugalmasság</span>
             <br>
             <span lang="en">#loyalty</span>
             <span lang="se">#lojalitet</span>            
+            <span lang="nl">#loyaliteit</span>
+            <span lang="hu">#lojalitás</span>
           </i></p>
         </div>
 
@@ -176,6 +233,8 @@
               class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
               <span lang="en">Work Experience</span>
               <span lang="se">Arbetserfarenhet</span>
+              <span lang="nl">Werkervaring</span>
+              <span lang="hu">Munkatapasztalat</span>
           </h2>
 
           <!--Road Surveys-->
@@ -183,6 +242,8 @@
             <h5 class="w3-text-teal"><b>
               <span lang="en">Road Surveys</span>
               <span lang="se">Vägmätning</span>
+              <span lang="nl">Wegenonderzoek</span>
+              <span lang="hu">Útvizsgálat</span>
             </b></h5>
             <h6 class="w3-text-teal">
               <i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2020
@@ -190,7 +251,11 @@
             </h6>
 
             <p class="entry_as_accordion">
-              Ramboll Sverige, T7 Engineering
+              <span lang="en">Ramboll Sweden, T7 Engineering</span>
+              <span lang="se">Ramboll Sverige, T7 Engineering</span>
+              <span lang="nl">Ramboll Zweden, T7 Engineering</span>
+              <span lang="hu">Ramboll Svédország, T7 Mérnökiroda</span>
+              
             </p>
 <!--             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block w3-left-align clickHeretoShowHide">
@@ -208,27 +273,39 @@
                 <p>
                   <span lang="en">Plan and conduct Road Condition Surveys<br>Process and visualize the results</span>
                   <span lang="se">Planera och utföra vägundersökning<br>Analysera och visualisera data</span>
+                  <span lang="nl">Planning en uitvoering van wegconditieonderzoeken<br>Verwerking en visualisering meetresultaten</span>
+                  <span lang="hu">Útvizsgalati projektek tervezese es kivitelezese<br>Az eredmenyek feldolgozasa es megjelenitese</span>
                 </p>
                 <ul>
                   <li>
                     <span lang="en">Road Surface Tester - Laser RST</span>
                     <span lang="se">Road Surface Tester - Laser RST</span>
+                    <span lang="nl">Road Surface Tester - Laser RST</span>
+                    <span lang="hu">Road Surface Tester - Laser RST</span>
                   </li>
                   <li>
                     <span lang="en">Road Marking Retroreflectometer - RMT, DELTA LTL-M</span>
                     <span lang="se">Road Marking Retroreflectometer - RMT, DELTA LTL-M</span>
+                    <span lang="nl">Road Marking Retroreflectometer - RMT, DELTA LTL-M</span>
+                    <span lang="hu">Road Marking Retroreflectometer - RMT, DELTA LTL-M</span>
                   </li>
                   <li>
                     <span lang="en">Ground Penetrating Radar - GPR, 3D-Radar</span>
                     <span lang="se">Ground Penetrating Radar - GPR, 3D-Radar</span>
+                    <span lang="nl">Ground Penetrating Radar - GPR, 3D-Radar</span>
+                    <span lang="hu">Ground Penetrating Radar - GPR, 3D-Radar</span>
                   </li>
                   <li>
                     <span lang="en">Road Friction Tester - ViaFriction</span>
                     <span lang="se">Road Friction Tester - ViaFriction</span>
+                    <span lang="nl">Road Friction Tester - ViaFriction</span>
+                    <span lang="hu">Road Friction Tester - ViaFriction</span>
                   </li>
                   <li>
                     <span lang="en">Falling Weight Deflectometer - KUAB, Curviameter, Dynatest</span>
                     <span lang="se">Falling Weight Deflectometer - KUAB, Curviameter, Dynatest</span>
+                    <span lang="nl">Falling Weight Deflectometer - KUAB, Curviameter, Dynatest</span>
+                    <span lang="hu">Ejtosulyos behajlasmero - KUAB, Curviameter, Dynatest</span>
                   </li>
                 </ul>
               </div>
@@ -264,12 +341,16 @@
             <h5 class="w3-text-teal"><b>
               <span lang="en">Road Safety Specialist</span>
               <span lang="se">Specialist på trafiksäkerhet</span>
-            </b></h5>
+              <span lang="nl">Specialist in Verkeersveiligheid</span>
+              <span lang="hu">Közlekedésbiztonság</span>
+      </b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2002 - 2005</h6>
             <p class="entry_as_accordion">
               <span lang="en">Ministry of Transport, Hungary</span>
               <span lang="se">Transportministeriet Ungern</span>
-            </p>
+              <span lang="nl">Ministerie van Transport</span>
+              <span lang="hu">Közlekedési Minisztérium</span>
+      </p>
 <!--             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
               <span lang="en">Ministry of Transport, Hungary</span>
@@ -283,19 +364,27 @@
                 <p>
                   <span lang="en">Head of Transport Safety Dept.</span>
                   <span lang="se">Chef för trafiksäkerhetsavdelningen</span>
-                </p>
+                  <span lang="nl">Hoofd van afd. Verkeersveiligheid</span>
+                  <span lang="hu">Közlekedésbiztonsági osztály vezetoje</span>
+              </p>
                 <ul>
                   <li>
                     <span lang="en">Analysis</span>
                     <span lang="se">Analys</span>
+                    <span lang="nl">Analyse</span>
+                    <span lang="hu">Elemzés</span>
                   </li>
                   <li>
                     <span lang="en">Transport Policy, Road Safety Strategy</span>
                     <span lang="se">Transportpolitik, trafiksäkerhetsstrategi</span>
+                    <span lang="nl">Actieplan voor verkeersveiligheid</span>
+                    <span lang="hu">Közlekedéspolitika, közlekedésbiztonság</span>
                   </li>
                   <li>
                     <span lang="en">EU Law Harmonization</span>
                     <span lang="se">EU lagharmonisering frågor</span>
+                    <span lang="nl">Harmonisatikwesties EU-wetgeving</span>
+                    <span lang="hu">EU jogharmonizacio</span>
                   </li>
                 </ul>
               </div>
@@ -312,20 +401,28 @@
               <b>
                 <span lang="en">Road Surveys</span>
                 <span lang="se">Vägundersökning ingenjör</span>
-                <br>
+                <span lang="nl">Wegconditieonderzoek Ingenieur</span>
+                <span lang="hu">Útvizsgálat</span>
+            <br>
                 <span lang="en">Traffic Engineering</span>
                 <span lang="se">Trafikingenjör</span>
-                <br>
+                <span lang="nl">Verkeers Ingenieur</span>
+                <span lang="hu">Forgalomtechnika</span>
+            <br>
                 <span lang="en">Databank Engineer</span>
                 <span lang="se">Databankingenjör</span>
-              </b>
+                <span lang="nl">Databank Ingenieur</span>
+                <span lang="hu">Adatbank</span>
+          </b>
             </h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1990 - 2001</h6>
             
             <p class="entry_as_accordion">
               <span lang="en">National Roads</span>
               <span lang="se">Riksvägar (Ungerns Trafikverket)</span>
-            </p>
+              <span lang="nl">Technische Diensten voor Rijkswegen</span>
+              <span lang="hu">Magyar Közút</span>
+      </p>
 <!--             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
               <span lang="en">National Roads</span>
@@ -350,24 +447,34 @@
                   <summary>
                     <span lang="en">R+D</span>
                     <span lang="se">R+D</span>
+                    <span lang="nl">R+D</span>
+                    <span lang="hu">K+F</span>
                   </summary>
                   <div>
                     <p style="padding-left: 1em;">
                       <span lang="en">Projects in the fields of:</span>
                       <span lang="se">Utföra olika projekt inom områden:</span>
-                    </p>
+                      <span lang="nl"></span>
+                      <span lang="hu"></span>
+                      </p>
                     <ul>
                       <li>
                         <span lang="en">Road Condition Surveys</span>
                         <span lang="se">Vägförhållanden</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">Traffic Counting and Analysis</span>
                         <span lang="se">Trafikmätning och analys</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">Road Safety</span>
-                        <span lang="se">Trafiksäkerhet</span>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                            <span lang="se">Trafiksäkerhet</span>
                       </li>
                     </ul>
                   </div>
@@ -377,17 +484,23 @@
                   <summary>
                     <span lang="en">Road Accident Data Collection</span>
                     <span lang="se">Datainsamling och analys av trafikolyckor</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                   </summary>
                   <div>
                     <ul>
                       <li>
                         <span lang="en">Improving the quality and consistency of the National Road Accident Data Collection System</span>
                         <span lang="se">Förbättra konsistensen och tillförlitligheten av det Nationella Datainsamlingsystemet</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">Improving the cooperation between Road Accident Data stakeholders</span>
                         <span lang="se">Samarbete med andra branschorganisationer (Polisen, Statistikbyrån, Riksvägar)</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                     </ul>
                   </div>
                 </details>
@@ -396,17 +509,23 @@
                   <summary>
                     <span lang="en">Traffic Counting and Traffic Studies</span>
                     <span lang="se">Trafikmätning och undersökning</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                   </summary>
                   <div>
                     <ul>
                       <li>
                         <span lang="en">Improving and Supervising the Traffic Data Collection System on National Roads</span>
                         <span lang="se">Utveckling och övervakning projektnivå och permanenta trafikmätningar på Riksvägar</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">Introducing new technologies for Automatic Vehicle Categorisation and Dynamic Axelweight Measuring</span>
                         <span lang="se">Införing automatiserad utrustning för fordonskategorisering och dynamisk axelviktsmätning</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                     </ul>
                   </div>
                 </details>
@@ -415,26 +534,36 @@
                   <summary>
                     <span lang="en">Classic databank tasks at the National Road Databank (VDB)</span>
                     <span lang="se">Klassiska databanksuppgifter för VDB</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                   </summary>
                   <div>
                     <ul>
                       <li>
                         <span lang="en">Datamanagement</span>
                         <span lang="se">Datamanagement</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">SQL Queries</span>
                         <span lang="se">SQL Queries</span>
-                          
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                              
                       </li>
                       <li>
                         <span lang="en">Generating Reports</span>
                         <span lang="se">Rapportering</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">Map Visualizations</span>
                         <span lang="se">Kartvisualisering</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                     </ul>
                   </div>
                 </details>
@@ -443,17 +572,23 @@
                   <summary>
                     <span lang="en">PMS</span>
                     <span lang="se">PMS</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                   </summary>
                   <div>
                     <ul>
                       <li>
                         <span lang="en">Deterioration Models using the Markov Matrix Method</span>
                         <span lang="se">Deterioration Models med Markov Processen</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">Introducing <abbr title="Highway Development and Management Model">HDM-4</abbr></span>
                         <span lang="se">Införa <abbr title="Highway Development and Management Model">HDM-4</abbr></span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                     </ul>
                   </div>
                 </details>
@@ -462,21 +597,29 @@
                   <summary>
                     <span lang="en">Traffic Engineering</span>
                     <span lang="se">Trafikingenjör</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                   </summary>
                   <div>
                     <ul>
                       <li>
                         <span lang="en">Analysing traffic and accident data</span>
                         <span lang="se">Analysering trafik- och olycksdata</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">Designing de-routing system</span>
                         <span lang="se">Utveckling av omvägssystem</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                       <li>
                         <span lang="en">Designing work zone signalisation</span>
                         <span lang="se">Utveckling av arbetszonssignalering</span>
-                      </li>
+                        <span lang="nl"></span>
+                        <span lang="hu"></span>
+                          </li>
                     </ul>
                   </div>
                 </details>
@@ -495,14 +638,18 @@
             <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
             <span lang="en">Other Experiences and Competencies</span>
             <span lang="se">Ytterligare Erfarenheter och Kompetenser</span>
-          </h2>
+            <span lang="nl">Andere Ervaringen en Vaardigheden</span>
+            <span lang="hu">Egyéb munkatapasztalat</span>
+  </h2>
 
           <!--Internatinal Org-->
           <div class="w3-container">
             <h5 class="w3-text-teal"><b>
               <span lang="en">Working with International Organizations</span>
               <span lang="se">Arbeta med internationella organisationer</span>
-            </b></h5>
+              <span lang="nl">Werken in Internationale Organizaties</span>
+              <span lang="hu">Nemzetközi szervezetek</span>
+      </b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1996 - 2005</h6>
 
             <!--PIARC-->
@@ -534,6 +681,8 @@
                     Föreningen har nu 124 regeringsmedlemmar över hela världen och innehar rådgivningen status för FN:s
                     Ekonomiska och Sociala Råd.
                     Jag har representerat Ungern i trafiksäkerhetskommissionen av AIPCR/PIARC mellan 1996 och 2003.</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                   </p>
                 <div class="w3-container">
                   <img
@@ -549,6 +698,8 @@
                     <a href="https://www.piarc.org/en/order-library/6286-en-Road%20Safety%20Manual" target="_blank">
                       Road Safety Manual</a>.
                     Mitt bidrag till Manualen var att skriva kapitlet Data Collection.</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                 </p>
               </div>
 <!--               <p onclick="ShowHide(this.parentElement)" class="w3-hover-light-grey w3-block w3-left-align clickHeretoHide">
@@ -591,6 +742,8 @@
                       i länder över hela världen.
                       Mellan 2000 och 2005 fungerade jag som program-coordinator för GRSP Ungern.
                     </span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                     <br>
                 </p>
               </div>
@@ -603,7 +756,9 @@
             <p class="entry_with_no_details">
               <span lang="en">Council of EU - Working Group on the preparation of EU's Driving Licence Legislation</span>
               <span lang="se">Europeiska unionens råd - Arbetsgrupp för harmonisering av EU körkorts lagstiftning</span>
-            </p>
+              <span lang="nl">Europese Raad - Werkgroep EU Rijbewijsharmonisatie</span>
+              <span lang="hu">Európai Tanács munkacsoportja az EU jogosítvány tervezete előkészítésére</span>
+      </p>
             <hr>
           </div>
 
@@ -612,12 +767,16 @@
             <h5 class="w3-text-teal"><b>
               <span lang="en">Experience in Company Management</span>
               <span lang="se">Erfarenhet inom området företagsledning</span>
-            </b></h5>
+              <span lang="nl">Ervaring in Bedrijfsbeheer</span>
+              <span lang="hu">Vállalatirányítás</span>
+      </b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2002 - 2004</h6>
             <p class="entry_with_no_details">
               <span lang="en">Board Member of a regional public transport company in Hungary</span>
               <span lang="se">Styrelseledamot i ett regionalt kollektivtrafikföretag i Ungern</span>
-            </p>
+              <span lang="nl">Ervaring in Bedrijfsbeheer</span>
+              <span lang="hu">Közlekedési vállalat igazgatósági tag</span>
+      </p>
             <hr>
           </div>
 
@@ -626,7 +785,9 @@
             <h5 class="w3-text-teal"><b>
               <span lang="en">Digital Competencies</span>
               <span lang="se">Digitala kompetens</span>
-            </b></h5>
+              <span lang="nl">Digitale Vaardigheden</span>
+              <span lang="hu">Digitális ismeretek</span>
+      </b></h5>
             
             <!-- Datamanagement -->
             <p class="entry_with_no_details">Datamanagement</p>
@@ -663,7 +824,9 @@
             <p class="entry_as_accordion">
               <span lang="en">Software Development</span>
               <span lang="se">Programutvekling</span>
-            </p>
+              <span lang="nl">Software Ontwikkeling</span>
+              <span lang="hu">Programozási ismeretek</span>
+      </p>
 <!--             <p onclick="ShowHide(this.nextElementSibling)"
               class="w3-hover-light-grey w3-block  w3-left-align clickHeretoShowHide">
               <span lang="en">Software Development</span>
@@ -675,13 +838,15 @@
             <div id="ListCode2Example" class="panel w3-text-grey">
               
               <!-- Tab Buttons (5) -->
-              <div class="w3-container w3-row" style="margin: 0;">
+              <div id="codeExamplesBtns" class="w3-container w3-row" style="margin: 0;">
                 <a  
                   href="javascript:void(0)" onclick="openTabContent(event, 'tab1');">
                   <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding-16 w3-center"
                     style="width:20%; margin: 0;">
                     <span class="on-large-screen">JavaScript</span>
                     <span class="on-small-screen">JS</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                   </div>
                 </a>
                 <a 
@@ -692,12 +857,22 @@
                 <a  
                   href="javascript:void(0)" onclick="openTabContent(event, 'tab3');">
                   <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding-16 w3-center"
-                    style="width:20%; margin: 0;">Python</div>
+                    style="width:20%; margin: 0;">
+                    <span class="on-large-screen">Python</span>
+                    <span class="on-small-screen">Py</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
+                  </div>
                 </a>
                 <a id="openTabAtStart"
                   href="javascript:void(0)" onclick="openTabContent(event, 'tab4');">
                   <div class="w3-col tablink w3-bottombar w3-hover-light-grey w3-padding-16 w3-center"
-                    style="width:20%; margin: 0;">Python</div>
+                    style="width:20%; margin: 0;">                    
+                    <span class="on-large-screen">Python</span>
+                    <span class="on-small-screen">Py</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
+                  </div>
                 </a>
                 <a 
                   href="javascript:void(0)" onclick="openTabContent(event, 'tab5');">
@@ -711,11 +886,15 @@
                 <h4 class="w3-center">
                   <span lang="en">Monitoring tool for a Road Marking Survey</span>
                   <span lang="se">Lägesrapport om Funktionskontroll av Vägmarkering</span>
-                </h4>
+                  <span lang="nl"></span>
+                  <span lang="hu"></span>
+              </h4>
                 <ul class="li-centered">
                   <li>
                     <span lang="en">Web Applications, Cloud-based Data Visualizations</span>
                     <span lang="se">Web Application och Cloud-based Data Visualization</span>
+                    <span lang="nl"></span>
+                    <span lang="hu"></span>
                   </li>
                   <li>HTML/CSS</li>
                   <li>JavaScript</li>
@@ -728,21 +907,23 @@
                 <span class="w3-tag w3-tiny w3-white">
                   <span lang="en">
                     Click on the image to open the live application.
-                    (Pls. allow Google Apps Script to run if asked.)
                   </span>
                   <span lang="se">
                     Klicka på bilden för att öppna live webbapplikationen.
-                    (Vänligen tillåt Google Apps Script om begärs.)  
                   </span>
                 </span>
-              </div>
+                <span lang="nl"></span>
+                <span lang="hu"></span>
+          </div>
 
               <!-- Tab2 Content -->
               <div id="tab2" class="w3-container tabClass" style="margin: 0;">
                 <h4 class="w3-center">
                   <span lang="en">Map visualization of Road Surface Measurement data</span>
                   <span lang="se">Kartvisualisering av Vägytemätningsresultat</span>
-                  
+                  <span lang="nl"></span>
+                  <span lang="hu"></span>
+                
                 </h4>
                 <ul class="li-centered">
                   <li>Linux Bash</li>
@@ -757,7 +938,9 @@
                 <h4 class="w3-center">
                   <span lang="en">Map visualization of Winter Friction Survey Data</span>
                   <span lang="se">Kartvisualisering av Vintervägmätningsresultat</span>
-                  
+                  <span lang="nl"></span>
+                  <span lang="hu"></span>
+                
                 </h4>
                 <ul class="li-centered">
                   <li>Python</li>
@@ -772,7 +955,9 @@
                 <h4 class="w3-center">
                   <span lang="en">Report of a Winter Friction Measurement</span>
                   <span lang="se">Rapport om Vinter Friktionmätning</span>
-                  
+                  <span lang="nl"></span>
+                  <span lang="hu"></span>
+                
                 </h4>
                 <ul class="li-centered">
                   <li>Python</li>
@@ -787,7 +972,9 @@
                 <h4 class="w3-center">
                   <span lang="en">Reporting Tool for Winter Friction Surveys</span>
                   <span lang="se">Reporting Tool för Vinter Friktionmätning</span>
-                </h4>
+                  <span lang="nl"></span>
+                  <span lang="hu"></span>
+              </h4>
                 <ul class="li-centered">
                   <li>C#, .Net Windows Presentation Foundation</li>
                   <li>Python</li>
@@ -808,12 +995,16 @@
             <h5 class="w3-text-teal"><b>
               <span lang="en">Career Break</span>
               <span lang="se">Karriärpaus</span>
-            </b></h5>
+              <span lang="nl">Loopbaanonderbreking</span>
+              <span lang="hu">Karrier szünet</span>
+      </b></h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2005 - 2013</h6>
             <p class="entry_with_no_details">
               <span lang="en">Occasional work for NGOs in China and the Philippines.</span>
               <span lang="se">Tillfälligt arbete för NGO i Kina och i Filippinerna.</span>
-            </p>
+              <span lang="nl">Tijdelijk werk voor NGO's in China en Filippijnen.</span>
+              <span lang="hu">Alkalmankénti munka civil szervezeteknek Kinában és a Fülöp-szigeteken.</span>
+      </p>
           </div>
         </div>
 
@@ -824,7 +1015,9 @@
             <i class="fa fa-graduation-cap fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
             <span lang="en">Education</span>
             <span lang="se">Utbildning</span>
-          </h2>
+            <span lang="nl">Opleiding</span>
+            <span lang="hu">Iskolai végzettség</span>
+  </h2>
 
           <!--University-->
           <div class="w3-container">
@@ -832,13 +1025,17 @@
               <b>
                 <span lang="en">Technical University of Budapest</span>
                 <span lang="se">Tekniska Universitetet Budapest - Ungern</span>
-              </b>
+                <span lang="nl">Technische Universiteit van Boedapest - Hongarije</span>
+                <span lang="hu">Budapesti Műszaki Egyetem</span>
+          </b>
             </h5>
             <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1982 - 1988</h6>
             <p class="entry_with_no_details">
               <span lang="en">Civil Engineering - Roads and Railways</span>
               <span lang="se">Civilingenjör - Väg och Järnväg</span>
-            </p>
+              <span lang="nl">Burgerlijk Ingenieur - Weg en Spoorweg</span>
+              <span lang="hu">Építőmérnök - Út- és vasútépítés</span>
+      </p>
             <hr>
           </div>
 
@@ -849,6 +1046,8 @@
               <b>
                 <span lang="en">Other Diplomas and Trainings</span>
                 <span lang="se">Andra diplom och utbildningar</span>
+                <span lang="nl">Andere Diploma's en Trainingen</span>
+                <span lang="hu">Egyéb oktatás</span>
               </b>
               <br>
               <span class="showmoreless-tag  w3-tag w3-tiny w3-round w3-light-grey w3-left-align"></span>
@@ -859,18 +1058,26 @@
                   <li>
                     <span lang="en">Diploma on Public Administration</span>
                     <span lang="se">Examen i Offentlig Förvaltning</span>
+                    <span lang="nl">Diploma Publieke Administratie</span>
+                    <span lang="hu">Közigazgatási vizsga</span>
                   </li>
                   <li>
                     <span lang="en">GPS/GIS Technologies - ArcView GIS Training</span>
                     <span lang="se">GPS/GIS Technologies - ArcView GIS Training</span>
+                    <span lang="nl">GPS/GIS Technologies - ArcView GIS Training</span>
+                    <span lang="hu">GPS/GIS Technologies - ArcView GIS Training</span>
                   </li>
                   <li>
                     <span lang="en">Safe Driving - Gerhard Berber Training Center</span>
                     <span lang="se">Säker Kör Träning - Gerhard Berger Training Center</span>
+                    <span lang="nl">Training Veilig Rijden - Gerhard Berger Training Center</span>
+                    <span lang="hu">Biztonságos vezetés - Gerhard Berger Oktatóközpont</span>
                   </li>
                   <li>
                     <span lang="en">Highway Development and Management Model (HDM-4) - a World Bank course</span>
                     <span lang="se">Highway Development and Management Model (HDM-4) - World Bank kurs</span>
+                    <span lang="nl">Highway Development and Management Model (HDM-4) - World Bank</span>
+                    <span lang="hu">Highway Development and Management Model (HDM-4) - Vilagbanki kurzus</span>
                     
                   </li>
                 </ul>
