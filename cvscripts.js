@@ -328,6 +328,9 @@ function fillInMyData(DriveData={}){
  * @returns 
  */
 function fetchDataFromDrive(queryString) {
+    fetchBtnClicked += 1;
+    const buttonElement = document.getElementById("fetchAllDetails");
+    if(buttonElement){buttonElement.disabled='true';}
     if (fetchBtnClicked > 3){
         console.log("fetch btn clicked: ", fetchBtnClicked, "times. No more fetch!");
         deleteFetchBtn();
