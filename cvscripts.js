@@ -410,7 +410,7 @@ function fetchDataFromDrive(queryString) {
                 //console.log("rowObj", rowObj)
             }
         }
-        console.log("objOfData:", objOfData);
+        //console.log("objOfData:", objOfData);
         // Fill in contact data on page (pass it further even if empty)
         fillInMyData(objOfData);
     }
