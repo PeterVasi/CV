@@ -435,6 +435,44 @@ function fetchDataFromDrive(queryString) {
     });
 }
 
+function getLocation() {
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+        if (result.state === "granted") {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+              } else { 
+                console.log("Geolocation is not supported by this browser.");
+              }
+        } else if (result.state === "prompt") {
+            console.log("Geolocation prompted for permission.");
+        } else {
+            // Don't do anything if the permission was denied.
+            console.log("Geolocation: Not granted and not prompted. No permission.")
+        }
+    });
+  }
+  
+  function showPosition(position) {
+    console.log("Latitude:",position.coords.latitude,"Longitude:",position.coords.longitude);
+  }
+  
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        console.log("User denied the request for Geolocation.")
+        break;
+      case error.POSITION_UNAVAILABLE:
+        console.log("Location information is unavailable.")
+        break;
+      case error.TIMEOUT:
+        console.log("The request to get user location timed out.")
+        break;
+      case error.UNKNOWN_ERROR:
+        console.log("An unknown error occurred.")
+        break;
+    }
+  }
+
 
 /**
  * Run these on Start Up
