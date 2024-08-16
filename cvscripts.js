@@ -93,6 +93,16 @@ function ShowHide(obj) {
  */
 function changeLang(lang){
     document.body.setAttribute('lang', lang.value);
+    changeDocTitle();
+}
+
+function changeDocTitle(){
+    try{
+        document.title = document.querySelector('#nev span[lang="' + document.body['lang'] + '"').innerHTML + " - CV"; 
+    }
+    catch(err){
+        console.log("Changing document title failed:", err)
+    }
 }
 
 /**
@@ -311,6 +321,7 @@ function fillInMyData(DriveData={}){
             });    
         }
     }
+    changeDocTitle();
     /**
      * Delete the "fetchAllDetails" button if all p elements are visible,
      * meaning all contact info have been retrieved already.
