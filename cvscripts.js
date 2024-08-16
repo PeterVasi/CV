@@ -347,7 +347,6 @@ function fetchDataFromDrive(queryString) {
         deleteFetchBtn();
         return;
     };
-    const apiKey = "AIzaSyC4gIYEKnBAcesxJXbPUINvgKpT8i6NlMg";
     const SsId = "1sT5-RTxGebv3Ty7hHAaWhZp9c_pQh9N6NvWbX3DuYn8";
     const sheetName = "Sheet1";
     const gid = "0";
